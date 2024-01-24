@@ -1,0 +1,213 @@
+@import "nullstyle.css";
+
+body{
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    background-color: rgb(150, 185, 154);
+
+}
+html {
+    scroll-behavior: smooth;
+  }
+/* -------------------------------- A L L ------------------------------- */
+.main{
+    height: 100%;
+}
+.main_conteiner{
+
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: 100%;
+    background-color: #c4c3c9;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+
+
+
+
+
+h1{
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 10px;
+    line-height: 50px;
+    word-spacing: 3px;
+}
+h2{
+    color: #5c5c5c;
+    line-height: 50px;
+    font-weight: 300;
+    letter-spacing: 2px ;
+    align-self: center;
+    text-align: center;
+}
+
+
+
+
+
+
+
+/* -------------------------------- A L L ------------------------------- */
+
+/* -------------------------------- H E A D E R ------------------------------- */
+.container{
+    min-height: 50px;
+    max-width: 1440px;
+    margin: 0 auto;
+
+
+}
+
+header{
+
+    background-color: rgb(154, 170, 223);
+    width: 100%;
+}
+ul{
+    display: flex;
+    justify-content: flex-end;
+ li{
+    white-space: nowrap;
+    margin: 1%;
+    color: rgb(13, 1, 27);
+ }
+
+
+/* -------------------------------- H E A D E R ------------------------------- */
+
+
+/* -------------------------------- A V A T A R ------------------------------- */
+}
+.navigation{
+    margin: 1%;
+
+}
+.preview {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1 0 auto;
+    max-height: 50%;
+    border-bottom: 15px solid #83a3b6;
+    padding: 50px 30px 35px;
+
+
+
+}
+.preview_about{
+    height: 30%;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+
+
+}
+
+.myPhoto{
+    width: 250px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.preview_border{
+    border: 3px solid rgb(37, 155, 190);
+}
+
+/* -------------------------------- A V A T A R ------------------------------- */
+
+/* -------------------------------- C O N T A C T S ------------------------------- */
+
+.info{
+    display: flex;
+    justify-content: space-around;
+    line-height: 30px;
+    padding: 10px;
+    border-bottom: 15px solid #83a3b6;
+}
+.info_contact{
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+
+}
+.table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+
+
+}
+.info_about{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding-bottom: 40px;
+
+
+}
+
+/* -------------------------------- C O N T A C T S ------------------------------- */
+
+
+/* -------------------------------- F O O T E R ------------------------------- */
+
+
+footer{
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo{
+    width: 50%;
+    height: 100%;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: #000;
+
+}
+
+a:hover{
+    color: rgb(141, 120, 233);
+  text-decoration: underline;
+  transition: 1s;
+}
+
+
+
+
+
+
+/* -------------------------------- F O O T E R ------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
