@@ -16,11 +16,7 @@ flex-direction: column;
 }
 
 
-.container{
 
-    margin-left: 20px;
-    margin-right: 20px;
-}
 
 /* ------------------------ HEADER -----------------------*/
 h1{
@@ -59,7 +55,33 @@ header{
 
 }
 
+/* ------------------------ HEADER -----------------------*/
+/* ------------------------ WELCOME -----------------------*/
+.welcome{
+    display: flex;
+    background: url(/assets/img/image.jpg);
+    height: 600px;
+}
 
+h3{
+    font-family: Forum;
+    font-size: 30px;
+    color: #FFF;
+}
+.welcome_text{
+    align-self: center;
+    width: 600px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: #0C0C0E;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+/* ------------------------ WELCOME -----------------------*/
 
 
 
