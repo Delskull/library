@@ -112,7 +112,9 @@ text-transform: capitalize;
 position: relative;
 margin-bottom: 40px;
 margin-top: 20px;
-::after{
+
+}
+.info_title::after{
     content: "";
     position: absolute;
     bottom: -21px;
@@ -124,7 +126,6 @@ margin-top: 20px;
     margin: 0 auto;
     display: block;
   }
-}
 .info_text{                                      /* ------------------------ use 2 times -----------------------*/
     color: rgb(0, 0, 0);
     font-family: Inter;
@@ -157,6 +158,60 @@ margin-top: 20px;
 
 
 /* ------------------------ ABOUT -----------------------*/
+
+/* ------------------------ FAVORITES -----------------------*/
+.favorites{
+    margin: 20px 20px 0 20px;
+}
+
+.favotites_info{
+    display: flex;
+}
+
+.favorites_head{
+    align-self: flex-start;
+    color: rgb(0, 0, 0);
+font-size: 20px;
+font-weight: 700;
+line-height: 24px;
+margin-top: 40px;
+}
+/* ------------------------ RADIO BUTTON ON FAVORITES -----------------------*/
+.favorites_input{
+    align-self:flex-start;
+    margin-top: 40px;
+}
+input[type="radio"]:checked+span {
+     font-weight: bold;
+
+
+     }
+
+     input[type="radio"]:nth-child(1)+span{
+        margin-right: 60px;
+
+     }
+     input[type="radio"]:nth-child(1){
+        margin-right: 30px;
+
+     }
+     input[type='radio'] {
+        accent-color: #232323;
+    }
+/* ------------------------ RADIO BUTTON ON FAVORITES -----------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------ FAVORITES -----------------------*/
 
 
 
