@@ -377,6 +377,51 @@ text-transform: capitalize;
 
 /* ------------------------ COFFE SHOP -----------------------*/
 
+/* ------------------------ OUR CONTACTS -----------------------*/
+.ourContacts{
+    margin: 20px 20px 0 20px;
+}
+.ourContacts_contacts{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 
+}
+
+.contacts_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 34px;
+}
+.contacts_item__head{
+    color: rgb(0, 0, 0);
+font-family: Inter;
+font-size: 20px;
+font-weight: 700;
+line-height: 40px;
+letter-spacing: 2px;
+text-transform: capitalize;
+}
+.contacts_item__head1{
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+.contacts_item__head2{
+padding-top: 40px;
+}
+.contacts_item__phone{
+    color: rgb(0, 0, 0);
+font-family: Inter;
+font-size: 20px;
+font-weight: 400;
+line-height: 40px;
+letter-spacing: 2px;
+text-transform: capitalize;
+}
+.usual{
+    font-weight: 400;
+}
+/* ------------------------ OUR CONTACTS -----------------------*/
 
 
