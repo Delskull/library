@@ -280,19 +280,83 @@
         <div class="container">
           <section class="ourContacts">
             <div class="ourContacts_info info">
-              <div class="ourContacts_info__title info_title"><h2>Our Contacts</h2></div>
+              <div class="ourContacts_info__title info_title">
+                <h2>Our Contacts</h2>
+              </div>
             </div>
             <div class="ourContacts_contacts">
               <div class="contacts_item">
-                <div class="contacts_item__head contacts_item__head1">For all Library inquiries:</div>
-                <div class="contacts_item__phone">Please call (617) 730-2370</div>
-                <div class="contacts_item__phone">For TTY service, please call (617) 730-2370</div>
-                <div class="contacts_item__phone">Putterham Library: (617) 730-2385</div>
-                <div class="contacts_item__head head contacts_item__head2">Senior Staff</div>
-                <div class="contacts_item__head"><span class="usual">Library Director:</span> Amanda Hirst</div>
+                <div class="contacts_item__head contacts_item__head1">
+                  For all Library inquiries:
+                </div>
+                <div class="contacts_item__phone">
+                  Please call (617) 730-2370
+                </div>
+                <div class="contacts_item__phone">
+                  For TTY service, please call (617) 730-2370
+                </div>
+                <div class="contacts_item__phone">
+                  Putterham Library: (617) 730-2385
+                </div>
+                <div class="contacts_item__head head contacts_item__head2">
+                  Senior Staff
+                </div>
+                <div class="contacts_item__head">
+                  <span class="usual">Library Director:</span> Amanda Hirst
+                </div>
               </div>
               <div class="contacts_item2">
-                <div class="contacts_map"><img src="/assets/img/map.jpeg" alt="map"></div>
+                <div class="contacts_map">
+                  <img src="/assets/img/map.jpeg" alt="map" />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="container">
+          <section class="libraryCards">
+            <div class="libraryCards_info info">
+              <div class="libraryCards_title info_title">
+                <h2>Digital Library Cards</h2>
+              </div>
+            </div>
+            <div class="libraryCards_block">
+              <div class="block_left">Find your Library card</div>
+              <div class="block_right">Get a reader card</div>
+            </div>
+            <div class="libraryCards_cards">
+              <div class="cards_login">
+                <form action="/index.php" method="POST">
+                  <div class="cards_login__header">Brooklyn Public Library</div>
+                  <br />
+                  <input
+                  class="input_name"
+                    type="text"
+                    name="email"
+                    value=""
+                    placeholder="Reader's name "
+                    required
+                  /><br />
+                  <input
+                  class="input_card"
+                    type="password"
+                    name="password"
+                    value=""
+                    placeholder="Card number"
+                  /><br />
+                  <input class="input_submit" type="submit" value="Check the card" />
+                </form>
+              </div>
+              <div class="cards_account">
+                <div class="cards_account__text">
+                  You will be able to see a reader card after<br />
+                  logging into account or you can register a new<br />
+                  account
+                </div>
+                <div class="cards_account__btn">
+                  <button class="button1" type="button">Sign Up</button>
+                  <button class="button1" type="button">Log In</button>
+                </div>
               </div>
             </div>
           </section>

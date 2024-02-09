@@ -425,3 +425,153 @@ text-transform: capitalize;
 /* ------------------------ OUR CONTACTS -----------------------*/
 
 
+/* ------------------------ libraryCards_cards -----------------------*/
+.libraryCards{
+    margin: 20px 20px 0 20px;
+}
+.libraryCards_cards{
+    display: flex;
+    justify-content: space-between;
+}
+.cards_login{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+border: 3px solid rgb(187, 148, 95);
+padding: 20px 20px 94px 20px;
+
+}
+.cards_account{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.cards_login__head{
+    color: rgb(0, 0, 0);
+font-family: Inter;
+font-size: 30px;
+font-weight: 400;
+line-height: 36px;
+letter-spacing: 2%;
+text-align: left;
+}
+.libraryCards_block{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+.block_left{
+    color: rgb(0, 0, 0);
+font-family: Inter;
+font-size: 30px;
+font-weight: 400;
+line-height: 36px;
+letter-spacing: 2%;
+text-align: left;
+}
+.block_right{
+    color: rgb(0, 0, 0);
+font-family: Forum;
+font-size: 30px;
+font-weight: 400;
+line-height: 33px;
+letter-spacing: 2%;
+text-align: center;
+}
+
+form{
+    width: 560px;
+height: 272px;
+background: rgb(187, 148, 95);
+padding-left: 25px;
+display: flex;
+flex-direction: column;
+
+}
+.input_name{
+    width: 520px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+background: rgb(255, 255, 255);
+color: rgb(142, 142, 142);
+font-family: Forum;
+font-size: 30px;
+font-weight: 400;
+line-height: 50px;
+letter-spacing: 2%;
+text-align: left;
+padding-left: 20px;
+}
+.input_card{
+    width: 520px;
+    border-radius: 10px;
+
+background: rgb(255, 255, 255);
+color: rgb(142, 142, 142);
+font-family: Forum;
+font-size: 30px;
+font-weight: 400;
+line-height: 50px;
+letter-spacing: 2%;
+text-align: left;
+padding-left: 20px;
+}
+.cards_login__header{
+    margin-top: 20px;
+    color: rgb(0, 0, 0);
+font-family: Forum;
+font-size: 30px;
+font-weight: 400;
+line-height: 50px;
+letter-spacing: 2%;
+text-align: left;
+}
+.input_submit{
+    position: relative;
+    background-color: #FFF;
+    color: rgb(12, 12, 14);
+font-family: Inter;
+font-size: 20px;
+font-weight: 700;
+line-height: 24px;
+letter-spacing: 1px;
+text-align: center;
+box-sizing: border-box;
+border: 1px solid rgb(12, 12, 14);
+border-radius: 2px;
+padding: 10px 0 10px 0;
+margin-top: 50px;
+width: 242px;
+align-self: center;
+
+}
+.cards_account__text{
+    color: rgb(0, 0, 0);
+font-size: 20px;
+font-weight: 400;
+line-height: 40px;
+letter-spacing: 2%;
+text-align: right;
+}
+.button1{
+background-color: #FFF;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 41px;
+    margin-left: 20px;
+}
+.cards_account__text{
+    color: rgb(0, 0, 0);
+font-family: Inter;
+font-size: 20px;
+font-weight: 400;
+line-height: 40px;
+letter-spacing: 2%;
+text-align: right;
+}
+/* ------------------------ libraryCards_cards -----------------------*/
