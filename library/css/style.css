@@ -427,7 +427,7 @@ text-transform: capitalize;
 
 /* ------------------------ libraryCards_cards -----------------------*/
 .libraryCards{
-    margin: 20px 20px 0 20px;
+    margin: 20px 20px 41px 20px;
 }
 .libraryCards_cards{
     display: flex;
@@ -575,3 +575,55 @@ letter-spacing: 2%;
 text-align: right;
 }
 /* ------------------------ libraryCards_cards -----------------------*/
+
+/* ------------------------ FOOTER -----------------------*/
+footer{
+    background: rgb(12, 12, 14);
+    color: rgb(255, 255, 255);
+    margin: 0 20px 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.footer_top{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+font-family: Inter;
+font-size: 15px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0%;
+text-align: left;
+}
+.top_left{
+    display: flex;
+    flex-direction: column;
+}
+.top_left__adress{
+    margin-bottom: 10px;
+}
+.svg_icon{
+    margin-right: 17px;
+}
+a{
+    color: white;
+}
+.top_right{
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+}
+
+
+
+.footer_line{
+    border: 1px solid rgb(255, 255, 255);
+    margin: 30px 0 44px 0;
+}
+.footer_down{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 44px;
+}
+/* ------------------------ FOOTER -----------------------*/
