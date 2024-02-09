@@ -626,4 +626,8 @@ a{
     justify-content: space-between;
     margin-bottom: 44px;
 }
+.top_left__icons{
+    display: flex;
+
+}
 /* ------------------------ FOOTER -----------------------*/
