@@ -306,6 +306,7 @@ font-weight: 700;
 line-height: 40px;
 letter-spacing: 2px;
 text-align: left;
+margin-top: 20px;
 }
 .cards_text{
     color: rgb(0, 0, 0);
@@ -316,7 +317,7 @@ line-height: 40px;
 letter-spacing: 2px;
 text-align: left;
 text-transform: capitalize;
-width: 65%;
+width: 66%;
 height: 60%;
 }
 img.cards_book{
@@ -355,10 +356,14 @@ border-radius: 2px;
 }
 .cards_btn{
     display: flex;
-    height: 20%;
+    height: 9%;
     align-items: end;
     margin-bottom: 20px;
 
+}
+
+.cards_visible{
+    display: none;
 }
 /* ------------------------ FAVORITES CARDS -----------------------*/
 
