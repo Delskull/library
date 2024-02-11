@@ -367,6 +367,11 @@ border-radius: 2px;
     margin-bottom: 20px;
 
 }
+.cards_button:hover{
+    background-color: #bb945f;
+    border: 1px solid #bb945f;
+    transition: all 1s;
+}
 
 .cards_visible{
     display: none;
@@ -573,9 +578,15 @@ font-family: Forum;
 font-size: 30px;
 font-weight: 400;
 line-height: 50px;
-letter-spacing: 2%;
+letter-spacing: 2px;
 text-align: left;
 padding-left: 20px;
+
+}
+/* убрать стрелочки у инпута карты */
+.input_card::-webkit-inner-spin-button {
+    display: none;
+
 }
 .cards_login__header{
     margin-top: 20px;
