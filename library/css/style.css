@@ -339,7 +339,13 @@ line-height: 12px;
 letter-spacing: 1px;
 text-align: center;
 }
+.button1:hover{
+background-color: #bb945f;
+border: 1px solid #bb945f;
+transition: all 1s;
+}
 button.button2{
+    background-color: #FFF;
 width: 75px;
 height: 30px;
 color: rgb(187, 148, 95);
