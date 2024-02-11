@@ -49,7 +49,10 @@ header{
 }
 .header_name{
     align-self: center;
+
 }
+
+
 .header_list{
     display: flex;
     flex: 1 0 auto;
@@ -58,7 +61,37 @@ header{
 }
 .header_nav{
     padding-right: 30px;
+    cursor: pointer;
 }
+
+
+/* ДЕКОРИРУЕМ МЕНЮ*/
+
+.link_menu{
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none; /* Убираем подчеркивание */
+    cursor: pointer;
+}
+.link_menu::after{
+    background-color: #00bfff; /* Цвет линии при наведении на нее курсора мыши */
+    display: block;
+    content: "";
+    height: 2px; /* Высота линии */
+    width: 0%;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+}
+.link_menu:hover:after,
+.link_menu:focus:after {
+    width: 100%;
+}
+/* ДЕКОРИРУЕМ МЕНЮ*/
+
+
+
+
 .header_icon{
     align-self: center;
 
@@ -142,13 +175,22 @@ margin-top: 20px;
     margin-top: 40px;
 }
 .circle{
+
     width: 16px;
     height: 16px;
     background: rgb(12, 12, 14);
-    margin-right: 10px;
+    margin: 0 auto;
     border-radius: 50px;
 }
+.circle_div{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+}
 .circle_1{
+    margin: 0 auto;
     width: 16px;
     height: 16px;
     background: rgb(187, 148, 95);
@@ -197,6 +239,13 @@ input[type="radio"]:checked+span {
      }
      input[type='radio'] {
         accent-color: #232323;
+    }
+    label{
+        padding: 10px;
+        cursor: pointer;
+    }
+    input{
+        cursor: pointer;
     }
 /* ------------------------ RADIO BUTTON ON FAVORITES -----------------------*/
 
