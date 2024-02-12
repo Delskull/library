@@ -101,7 +101,7 @@ header{
 /* ------------------------ WELCOME -----------------------*/
 .welcome{
     display: flex;
-    background: url(/assets/img/image.jpg);
+    background: url('../assets/img/image.jpg');
     height: 600px;
 }
 
