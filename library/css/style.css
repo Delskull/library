@@ -9,7 +9,7 @@ font-size: 20px;
 
 .content{
     display: flex;
-    width: 1440px;
+    max-width: 1440px;
     margin: 0  auto;
     min-height:100%;
 flex-direction: column;
@@ -62,6 +62,9 @@ header{
 .header_nav{
     padding-right: 30px;
     cursor: pointer;
+}
+.header_burger{
+    display: none;
 }
 
 
@@ -702,3 +705,103 @@ a{
 
 }
 /* ------------------------ FOOTER -----------------------*/
+
+/* --------------------------------------------------------- A D A P T I V E ---------------------------------------------*/
+
+@media (max-width:1024px) {
+    .header{
+        position: relative;
+        align-items: center;
+
+    }
+    .header_list{
+        position: absolute;
+        display: block;
+        right: -180px;
+        top: 40px;
+        background-color: #0C0C0E;
+        padding-left: 50px;
+        padding-right: 50px;
+        visibility: hidden;
+        transition: transform .5s;
+    }
+    .link_menu{
+        display: block;
+
+        color: rgb(255, 255, 255);
+font-family: Inter;
+font-size: 20px;
+font-weight: 400;
+line-height: 50px;
+text-align: center;
+    }
+    .header_nav:nth-child(1){
+        padding-top: 65px;
+    }
+    .header_nav{
+        padding-top: 20px;
+    }
+    .header_nav:last-child{
+        padding-bottom: 65px;
+    }
+
+    .header_icon{
+position: absolute;
+        right: 112px;
+
+        z-index: 2;
+    }
+    .header_burger{
+        display: block;
+        width: 45px;
+        height: 45px;
+        z-index: 2;
+        background-color: #0C0C0E;
+
+
+    }
+    .header_burger span{
+        display: block;
+        position: absolute;
+        width: 45px;
+        height: 3px;
+        right: 27px;
+        background-color: rgb(255, 255, 255);
+        transition: background-color .5s, opacity .25s, transform .5s;
+        will-change: transform;
+
+
+    }
+    .header_burger span:nth-child(1){
+transform: translateY(-10px);
+    }
+
+    .header_burger span:nth-child(3){
+        transform: translateY(10px);
+    }
+
+    /* ------------ ПЕРЕХОД В КРЕСТИК --------------- ОТКРЫТЬ МЕНЮ*/
+
+    .header.open .header_burger span:nth-child(1){
+        transform: translateY(0px) rotate(45deg);
+            }
+    .header.open .header_burger span:nth-child(2){
+                opacity: 0;
+            }
+   .header.open .header_burger span:nth-child(3){
+                transform: translateY(0px) rotate(-45deg);
+            }
+            .header.open .header_list{
+                transform: translateX(-100%);
+                visibility: visible;
+
+            }
+
+}
+
+
+
+
+
+
+/* --------------------------------------------------------- A D A P T I V E ---------------------------------------------*/
