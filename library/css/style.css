@@ -709,6 +709,9 @@ a{
 /* --------------------------------------------------------- A D A P T I V E ---------------------------------------------*/
 
 @media (max-width:1024px) {
+    .content{
+        overflow: hidden;
+    }
     .header{
         position: relative;
         align-items: center;
@@ -717,13 +720,13 @@ a{
     .header_list{
         position: absolute;
         display: block;
-        right: -180px;
+        right: -247px;
         top: 40px;
         background-color: #0C0C0E;
         padding-left: 50px;
         padding-right: 50px;
         visibility: hidden;
-        transition: transform .5s;
+        transition: transform .5s, visibility .5s;
     }
     .link_menu{
         display: block;
@@ -753,8 +756,8 @@ position: absolute;
     }
     .header_burger{
         display: block;
-        width: 45px;
-        height: 45px;
+        width: 55px;
+        height: 55px;
         z-index: 2;
         background-color: #0C0C0E;
 
