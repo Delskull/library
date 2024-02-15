@@ -51,7 +51,9 @@ header{
     align-self: center;
 
 }
-
+.header_icon{
+    background-color: #0C0C0E;
+}
 
 .header_list{
     display: flex;
@@ -712,6 +714,8 @@ a{
     .content{
         overflow: hidden;
     }
+
+    /* --------------------------------------------------------- A D A P T I V E HEADER ---------------------------------------------*/
     .header{
         position: relative;
         align-items: center;
@@ -799,6 +803,28 @@ transform: translateY(-10px);
                 visibility: visible;
 
             }
+
+            /* --------------------------------------------------------- A D A P T I V E HEADER ---------------------------------------------*/
+/* --------------------------------------------------------- A D A P T I V E ABOUT ---------------------------------------------*/
+.caroosel{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+.caroosel_2,
+.caroosel_3{
+    display: none;
+}
+
+
+
+
+
+
+/* --------------------------------------------------------- A D A P T I V E ABOUT ---------------------------------------------*/
+
+
 
 }
 
