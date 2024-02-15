@@ -21,7 +21,7 @@
     <div class="content">
       <header>
         <div class="container">
-          <nav class="header ">
+          <nav class="header">
             <div class="header_name"><h1>Brooklyn Public Library</h1></div>
             <ul class="header_list">
               <li class="header_nav">
@@ -72,7 +72,9 @@
               </div>
             </div>
             <div class="about_img caroosel">
-              <img class="caroosel_1 arrow" src="assets/img/image1.jpeg" alt="img1" />
+              <button class="arrow_left"></button>
+              <img class="caroosel_1" src="assets/img/image1.jpeg" alt="img1" />
+              <button class="arrow_right"></button>
               <img class="caroosel_2" src="assets/img/image2.jpeg" alt="img2" />
               <img class="caroosel_3" src="assets/img/image3.jpeg" alt="img3" />
             </div>
@@ -80,6 +82,12 @@
               <div class="circle_div"><div class="circle circle_1"></div></div>
               <div class="circle_div"><div class="circle"></div></div>
               <div class="circle_div"><div class="circle"></div></div>
+              <div class="circle_div circle_hide">
+                <div class="circle"></div>
+              </div>
+              <div class="circle_div circle_hide">
+                <div class="circle"></div>
+              </div>
             </div>
           </section>
         </div>
@@ -513,7 +521,7 @@
                   <div class="menu_position__price">$2</div>
                 </div>
               </div>
-              <div class="menu_item">
+              <div class="menu_item menu_item__2">
                 <div class="menu_drinks menu_drinks2">Desserts & Cakes</div>
                 <div class="menu_position">
                   <div class="menu_position__name">Forest Gateau</div>
@@ -626,6 +634,7 @@
                 </form>
               </div>
               <div class="cards_account">
+                <div class="block_right__visible">Get a reader card</div>
                 <div class="cards_account__text">
                   You will be able to see a reader card after<br />
                   logging into account or you can register a new<br />

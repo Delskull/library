@@ -130,7 +130,6 @@ header{
 .about{
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
     margin-right: 20px;
 }
 .info{
@@ -194,6 +193,9 @@ margin-top: 20px;
     width: 26px;
     height: 26px;
 }
+.circle_hide{
+display: none;
+}
 .circle_1{
     margin: 0 auto;
     width: 16px;
@@ -202,7 +204,14 @@ margin-top: 20px;
     gap: 10px;
     border-radius: 50px;
 }
-
+.caroosel{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.arrow_right{
+    display: none;
+}
 
 /* ------------------------ ABOUT -----------------------*/
 
@@ -709,13 +718,17 @@ a{
 /* ------------------------ FOOTER -----------------------*/
 
 /* --------------------------------------------------------- A D A P T I V E ---------------------------------------------*/
-
+@media (max-width:1369px) {
+    .caroosel_3{
+        display: none;
+    }
+}
 @media (max-width:1024px) {
     .content{
         overflow: hidden;
     }
 
-    /* --------------------------------------------------------- A D A P T I V E HEADER ---------------------------------------------*/
+    /* --------------------------------------------------------- A D A P T I V E HEADER 1024 ---------------------------------------------*/
     .header{
         position: relative;
         align-items: center;
@@ -804,8 +817,8 @@ transform: translateY(-10px);
 
             }
 
-            /* --------------------------------------------------------- A D A P T I V E HEADER ---------------------------------------------*/
-/* --------------------------------------------------------- A D A P T I V E ABOUT ---------------------------------------------*/
+            /* --------------------------------------------------------- A D A P T I V E HEADER 1024---------------------------------------------*/
+/* --------------------------------------------------------- A D A P T I V E ABOUT 1024---------------------------------------------*/
 .caroosel{
     display: flex;
     width: 100%;
@@ -816,15 +829,100 @@ transform: translateY(-10px);
 .caroosel_3{
     display: none;
 }
+.arrow_left::before{
+    content: '\3C';
 
 
+}
+.arrow_left{
+    height: 24px;
+    width: 24px;
+    align-self: center;
+    background: rgb(255, 255, 255);
+    margin-right: 58px;
+}
+.arrow_right::after{
+    content: '\3E';
+    width: 8.8px;
+    height: 16px;
 
 
+}
+.arrow_right{
+    display: flex;
+    height: 24px;
+    width: 24px;
+    align-self: center;
+    background: rgb(255, 255, 255);
+    margin-left: 58px;
+}
+.circle_hide{
+    display:flex;
+    }
 
+/* --------------------------------------------------------- A D A P T I V E ABOUT 1024---------------------------------------------*/
+/* --------------------------------------------------------- A D A P T I V E FAVORITES 1024---------------------------------------------*/
+.favorites_input{
+    display: flex;
+    align-self: center;
+}
+.cards{
+    justify-content: center;
+}
 
-/* --------------------------------------------------------- A D A P T I V E ABOUT ---------------------------------------------*/
-
-
+/* --------------------------------------------------------- A D A P T I V E FAVORITES 1024---------------------------------------------*/
+/* --------------------------------------------------------- A D A P T I V E COFFE SHOP 1024---------------------------------------------*/
+.menu{
+    flex-direction: column;
+}
+.menu_item{
+    width: auto;
+    align-self: flex-start;
+}
+.menu_item__2{
+    align-self: flex-end;
+}
+.menu_position__line{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+/* --------------------------------------------------------- A D A P T I V E COFFE SHOP 1024---------------------------------------------*/
+/* --------------------------------------------------------- A D A P T I V E CONTACTS 1024---------------------------------------------*/
+.ourContacts_contacts{
+    flex-direction: column;
+}
+/* --------------------------------------------------------- A D A P T I V E CONTACTS 1024---------------------------------------------*/
+/* --------------------------------------------------------- A D A P T I V E CARDS 1024---------------------------------------------*/
+.libraryCards_cards{
+    flex-direction: column;
+    align-items: center;
+}
+.libraryCards_block{
+    justify-content: center;
+    margin-top: 20px;
+}
+.block_right{
+    display: none;
+}
+.block_right__visible{
+    color: rgb(0, 0, 0);
+font-family: Forum;
+font-size: 30px;
+font-weight: 400;
+line-height: 33px;
+letter-spacing: 2%;
+text-align: center;
+align-self: center;
+margin-top: 20px;
+margin-bottom: 40px;
+}
+.cards_account__text{
+    text-align: center;
+}
+.cards_account{
+    align-items: center;
+}
+/* --------------------------------------------------------- A D A P T I V E CARDS 1024---------------------------------------------*/
 
 }
 
