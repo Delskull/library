@@ -234,8 +234,10 @@ margin-top: 40px;
 }
 /* ------------------------ RADIO BUTTON ON FAVORITES -----------------------*/
 .favorites_input{
+    display: flex;
     align-self:flex-start;
     margin-top: 40px;
+    padding-left: 10px;
 }
 input[type="radio"]:checked+span {
      font-weight: bold;
@@ -864,7 +866,8 @@ transform: translateY(-10px);
 /* --------------------------------------------------------- A D A P T I V E FAVORITES 1024---------------------------------------------*/
 .favorites_input{
     display: flex;
-    align-self: center;
+    align-self: start;
+    padding-left: 20px;
 }
 .cards{
     justify-content: center;
@@ -923,8 +926,37 @@ margin-bottom: 40px;
     align-items: center;
 }
 /* --------------------------------------------------------- A D A P T I V E CARDS 1024---------------------------------------------*/
-
 }
+
+/* --------------------------------------------------------- A D A P T I V E 768---------------------------------------------*/
+
+@media (max-width:768px){
+
+.welcome{
+background: url(../assets/img/welcome768.jpg) no-repeat;
+background-size: 100%;
+background-position:50%;
+}
+.header_list{
+    top: 31px;
+}
+label{
+    padding: 0px;
+}
+.maps{
+    width: 100%;
+}
+.contacts_map{
+    display: flex;
+    justify-content: center;
+}
+}
+@media (max-width:739px){}
+label{
+    display: flex;
+    margin: -17px;
+}
+/* --------------------------------------------------------- A D A P T I V E 768---------------------------------------------*/
 
 
 
