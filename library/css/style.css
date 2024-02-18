@@ -951,10 +951,12 @@ label{
     justify-content: center;
 }
 }
-@media (max-width:739px){}
+@media (max-width:739px){
 label{
     display: flex;
     margin: -17px;
+}
+
 }
 /* --------------------------------------------------------- A D A P T I V E 768---------------------------------------------*/
 
