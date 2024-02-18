@@ -131,6 +131,7 @@ header{
     display: flex;
     flex-direction: column;
     margin-right: 20px;
+    overflow: hidden;
 }
 .info{
     display: flex;
@@ -200,7 +201,7 @@ display: none;
     margin: 0 auto;
     width: 16px;
     height: 16px;
-    background: rgb(187, 148, 95);
+    background: rgb(12, 12, 14);
     gap: 10px;
     border-radius: 50px;
 }
@@ -1091,10 +1092,43 @@ h1{
         margin-left: -8px;
     }
 }
+}
 /* --------------------------------------------------------- A D A P T I V E 320---------------------------------------------*/
-
-
-
-
-
 /* --------------------------------------------------------- A D A P T I V E ---------------------------------------------*/
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------- SLIDER ---------------------------------------------*/
+.caroosel{
+    position: relative;
+    flex-wrap: nowrap;
+    /* overflow: hidden; */
+    transition: all ease 1s;
+    max-width: 100%;
+    right: 0;
+
+}
+
+.caroosel_img{
+    margin-right: 24px;
+}
+.content{
+    overflow: hidden;
+}
+.circle_brow{
+    background: rgb(187, 148, 95);
+
+}
+.circle_black{
+    background: rgb(12, 12, 14);
+
+}
+
+
+/* --------------------------------------------------------- SLIDER ---------------------------------------------*/
