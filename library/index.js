@@ -95,11 +95,43 @@ arrowRight.addEventListener("click", function () {
   arrowRight.style.left = step + 0 + "px";
 });
 // КАРТОЧКИ FAVORITES
+// кнопки радио
 let winterButton = document.querySelector(".winter");
-let winterCards = document.querySelectorAll("cards_winter");
-let cards = document.querySelector(".cards");
-winterButton.addEventListener("click", function () {});
+let springButton = document.querySelector(".spring");
+let summerButton = document.querySelector(".summer");
+let autumnButton = document.querySelector(".autumn");
+// кнопки
+
+// карточки с книгами
+let winterCards = document.querySelectorAll(".cards_winter");
+let springCards = document.querySelectorAll(".cards_spring");
+let summerCards = document.querySelectorAll(".cards_summer");
+let autumnCards = document.querySelectorAll(".cards_autumn");
+let allCards = document.querySelectorAll(".cards_visible");
+// карточки с книгами
+let cards = document.querySelector(".cards"); // общий блок карт
 
 winterButton.addEventListener("click", function () {
-  winterCards.style.opacity = 0
+  // класс актив по кнопке 1 и сброс остальных
+  allCards.forEach((elem) => {
+    elem.classList.remove("active");
+  });
+  winterCards.forEach((elem) => {
+    elem.classList.add("active");
+  });
 });
+
+springButton.addEventListener("click", function () {
+  // класс актив по кнопке 2 и сброс остальных
+  allCards.forEach((elem) => {
+    elem.classList.remove("active");
+  });
+  springCards.forEach((elem) => {
+    elem.classList.add("active");
+  });
+});
+
+// winterCards.forEach(elem => {
+//   elem.classList.add('active')
+// })
+console.log(winterCards);
