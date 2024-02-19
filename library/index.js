@@ -86,7 +86,20 @@ circle1.addEventListener("click", function () {
 });
 // Скролл на  3 кружках конец
 let step = 0;
-function rollRight() {
-  arrowRight.style.left = step + 800 + "px";
-}
-// arrowRight.addEventListener("click", rollRight());
+
+arrowRight.addEventListener("click", function () {
+  step += 800;
+  if (step >= 3200) {
+    arrowRight.style.remove;
+  }
+  arrowRight.style.left = step + 0 + "px";
+});
+// КАРТОЧКИ FAVORITES
+let winterButton = document.querySelector(".winter");
+let winterCards = document.querySelectorAll("cards_winter");
+let cards = document.querySelector(".cards");
+winterButton.addEventListener("click", function () {});
+
+winterButton.addEventListener("click", function () {
+  winterCards.style.opacity = 0
+});
