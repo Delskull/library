@@ -14,21 +14,27 @@ const sliderLine = document.querySelector(".caroosel");
 // Скролл на  3 кружках
 circle2.addEventListener("click", function () {
   offset = 475;
-  circle2.classList.toggle("circle_brow");
+  circle2.classList.add("circle_brow");
+  circle1.classList.remove("circle_brow");
+  circle3.classList.remove("circle_brow");
 
   sliderLine.style.right = offset + "px";
 });
 
 circle3.addEventListener("click", function () {
   offset = 950;
-  circle3.classList.toggle("circle_brow");
+  circle3.classList.add("circle_brow");
+  circle1.classList.remove("circle_brow");
+  circle2.classList.remove("circle_brow");
 
   sliderLine.style.right = offset + "px";
 });
 
 circle1.addEventListener("click", function () {
   offset = 0;
-  circle1.classList.toggle("circle_brow");
+  circle1.classList.add("circle_brow");
+  circle2.classList.remove("circle_brow");
+  circle3.classList.remove("circle_brow");
   sliderLine.style.right = offset + "px";
 });
 // Скролл на  3 кружках
