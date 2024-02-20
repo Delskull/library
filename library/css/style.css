@@ -391,7 +391,10 @@ border-radius: 2px;
 }
 
 .cards_visible{
-    display: none;
+    position: absolute;
+    opacity: 0;
+    top: 0
+
 }
 /* ------------------------ FAVORITES CARDS -----------------------*/
 
@@ -721,11 +724,7 @@ a{
 /* ------------------------ FOOTER -----------------------*/
 
 /* --------------------------------------------------------- A D A P T I V E ---------------------------------------------*/
-@media (max-width:1369px) {
-    .caroosel_3{
-        /* display: none; */
-    }
-}
+
 @media (max-width:1024px) {
     .content{
         overflow: hidden;
@@ -1150,16 +1149,22 @@ h1{
 
 /* --------------------------------------------------------- CARDS ---------------------------------------------*/
 .cards_winter{
-    display: none;
 
-    
+    opacity: 0;
+
+
+
 
 }
 .active{
+    position: relative;
     display: flex;
-
+    opacity: 1;
+    transition: all 3s linear;
 
 }
+
+
 
 
 
