@@ -84,7 +84,7 @@ circle1.addEventListener("click", function () {
   circle5.classList.remove("circle_brow");
   sliderLine.style.right = offset + "px";
 });
-// Скролл на  3 кружках конец
+
 let step = 0;
 
 arrowRight.addEventListener("click", function () {
@@ -94,6 +94,7 @@ arrowRight.addEventListener("click", function () {
   }
   arrowRight.style.left = step + 0 + "px";
 });
+//-----------------------------------------------карусель^^^^^-----------------------------------
 // КАРТОЧКИ FAVORITES
 // кнопки радио
 let winterButton = document.querySelector(".winter");
@@ -111,27 +112,59 @@ let allCards = document.querySelectorAll(".cards_visible");
 // карточки с книгами
 let cards = document.querySelector(".cards"); // общий блок карт
 
-winterButton.addEventListener("click", function () {
-  // класс актив по кнопке 1 и сброс остальных
-  allCards.forEach((elem) => {
+const addClassActive = (item) => {
+  // перебор карточек и добавление класса актив
+  item.forEach((elem) => {
+    elem.classList.add("active");
+    fadeIn(elem);
+  });
+};
+const removeClassActive = (item) => {
+  // перебор карточек и удаление класса актив
+  item.forEach((elem) => {
     elem.classList.remove("active");
   });
-  winterCards.forEach((elem) => {
-    elem.classList.add("active");
-  });
-});
+};
 
-springButton.addEventListener("click", function () {
-  // класс актив по кнопке 2 и сброс остальных
-  allCards.forEach((elem) => {
-    elem.classList.remove("active");
-  });
-  springCards.forEach((elem) => {
-    elem.classList.add("active");
-  });
-});
+const targetClick = (event) => {
+  const element = event.target;
+  if (element.classList.contains("circle_winter")) {
+    addClassActive(winterCards);
+    removeClassActive(springCards);
+    removeClassActive(summerCards);
+    removeClassActive(autumnCards);
+  }
+  if (element.classList.contains("circle_spring")) {
+    addClassActive(springCards);
+    removeClassActive(winterCards);
+    removeClassActive(summerCards);
+    removeClassActive(autumnCards);
+  }
+  if (element.classList.contains("circle_summer")) {
+    addClassActive(summerCards);
+    removeClassActive(winterCards);
+    removeClassActive(springCards);
+    removeClassActive(autumnCards);
+  }
+  if (element.classList.contains("circle_autumn")) {
+    addClassActive(autumnCards);
+    removeClassActive(winterCards);
+    removeClassActive(springCards);
+    removeClassActive(summerCards);
+  }
+};
+winterButton.addEventListener("click", targetClick);
+springButton.addEventListener("click", targetClick);
+summerButton.addEventListener("click", targetClick);
+autumnButton.addEventListener("click", targetClick);
+// console.log(winterCards);
 
-// winterCards.forEach(elem => {
-//   elem.classList.add('active')
-// })
-console.log(winterCards);
+// плавное исчезновение
+const fadeIn = (el, timeout, display) => {
+  el.style.opacity = 0;
+  el.style.display = display || "block";
+  el.style.transition = `opacity ${timeout}ms`;
+  setTimeout(() => {
+    el.style.opacity = 1;
+  }, 1000);
+};
