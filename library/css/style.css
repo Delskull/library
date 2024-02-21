@@ -13,6 +13,7 @@ font-size: 20px;
     margin: 0  auto;
     min-height:100%;
 flex-direction: column;
+overflow: hidden;
 }
 
 
@@ -726,9 +727,10 @@ a{
 /* --------------------------------------------------------- A D A P T I V E ---------------------------------------------*/
 
 @media (max-width:1024px) {
-    .content{
-        overflow: hidden;
-    }
+
+
+
+
 
     /* --------------------------------------------------------- A D A P T I V E HEADER 1024 ---------------------------------------------*/
     .header{
@@ -940,6 +942,11 @@ margin-bottom: 40px;
 
 @media (max-width:768px){
 
+    .active{
+        position: sticky;
+        top: 0;
+    }
+
 .welcome{
 background: url(../assets/img/welcome768.jpg) no-repeat;
 background-size: 100%;
@@ -1124,9 +1131,7 @@ h1{
 .caroosel_img{
     margin-right: 24px;
 }
-.content{
-    overflow: hidden;
-}
+
 .circle_brow{
     background: rgb(187, 148, 95);
 
@@ -1152,9 +1157,10 @@ h1{
 
     opacity: 0;
 
-
-
-
+}
+.cards{
+opacity: 1;
+transition: all 3s linear;
 }
 .active{
     position: relative;
@@ -1163,8 +1169,6 @@ h1{
     transition: all 3s linear;
 
 }
-
-
 
 
 

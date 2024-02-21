@@ -156,16 +156,3 @@ winterButton.addEventListener("click", targetClick);
 springButton.addEventListener("click", targetClick);
 summerButton.addEventListener("click", targetClick);
 autumnButton.addEventListener("click", targetClick);
-// console.log(winterCards);
-
-// плавное исчезновение
-// const fadeIn = (el, timeout, display) => {
-//   el.style.opacity = 0;
-//   el.style.display = display || "block";
-//   el.style.transition = `opacity ${timeout}ms`;
-//   setTimeout(() => {
-//     el.style.opacity = 1;
-//   }, 1000);
-// };
-
-
