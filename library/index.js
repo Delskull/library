@@ -6,9 +6,19 @@ let arrowLeft = document.querySelector(".arrow_left");
 let arrowRight = document.querySelector(".arrow_right");
 width = document.documentElement.clientWidth;
 
-burgerToggle.addEventListener("click", () =>
-  headerMenu.classList.toggle("open")
-);
+burgerToggle.addEventListener("click", function () {
+  headerMenu.classList.toggle("open");
+  profileLogin.classList.add("visibility");
+});
+// закрытие меню при аутсайд клике
+document.addEventListener("click", function (event) {
+  const isClickInsideMenu = headerMenu.contains(event.target);
+  if (!isClickInsideMenu) {
+    profileLogin.classList.add("visibility");
+    headerMenu.classList.remove("open");
+  }
+});
+
 // slider
 let offset = 0;
 let circle2 = document.querySelector(".circle_2");
@@ -156,3 +166,13 @@ winterButton.addEventListener("click", targetClick);
 springButton.addEventListener("click", targetClick);
 summerButton.addEventListener("click", targetClick);
 autumnButton.addEventListener("click", targetClick);
+
+// окно логина по кнопке профиля
+const profileLogo = document.querySelector(".header_icon");
+let profileLogin = document.querySelector(".profile_login");
+profileLogo.addEventListener("click", () => {
+  profileLogin.classList.toggle("visibility");
+});
+profileLogo.addEventListener("click", () => {
+  headerMenu.classList.remove("open");
+});

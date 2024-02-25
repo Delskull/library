@@ -76,17 +76,15 @@ header{
     flex-direction: column;
     width: 80px;
     height: 115px;
-    top: 59px;
-left: -50px;
+    top: 60px;
+right: 20px;
 background-color: #FFF;
-
+z-index: 3;
+visibility: visible;
+opacity: 1;
+transition: all 1s linear;
 }
-.loggin-wrapper{
-    display: flex;
-    position: relative;
-    justify-content: center;
 
-}
 
 
 /* ДЕКОРИРУЕМ МЕНЮ*/
@@ -744,6 +742,7 @@ a{
 
 /* --------------------------------------------------------- A D A P T I V E ---------------------------------------------*/
 
+
 @media (max-width:1024px) {
 
 
@@ -751,6 +750,11 @@ a{
 
 
     /* --------------------------------------------------------- A D A P T I V E HEADER 1024 ---------------------------------------------*/
+    .profile_login{
+        top: 60px;
+    right: 112px;
+
+    }
     .header{
         position: relative;
         align-items: center;
@@ -1192,9 +1196,7 @@ transition: all 3s linear;
 /* --------------------------------------------------------- CARDS ---------------------------------------------*/
 
 /* --------------------------------------------------------- login modale ---------------------------------------------*/
-.profile_login{
-    /* visibility: hidden; */
-}
+
 .info_title__login{
     color: rgb(0, 0, 0);
 font-family: Inter;
@@ -1238,4 +1240,9 @@ padding-top: 15px;
         right: 0;
     margin: 0 auto;
     display: block;
+  }
+  .visibility{
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s linear;
   }
