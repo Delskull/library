@@ -741,7 +741,21 @@ a{
 /* ------------------------ FOOTER -----------------------*/
 
 /* --------------------------------------------------------- A D A P T I V E ---------------------------------------------*/
+@media (max-width:1920px){
+    .profile_login{
+        top: 60px;
+    right: 251px;
 
+    }
+    }
+
+@media (max-width:1440px){
+.profile_login{
+    top: 60px;
+right: 20px;
+
+}
+}
 
 @media (max-width:1024px) {
 
