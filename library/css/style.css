@@ -20,6 +20,9 @@ overflow: hidden;
 
 
 /* ------------------------ HEADER -----------------------*/
+button{
+    background-color: #FFF;
+}
 h1{
    font-family: Forum;
 font-size: 30px;/* 166.667% */
@@ -33,6 +36,16 @@ h3{
     line-height: 50px;
     letter-spacing: 3px;
     text-align: center;
+}
+h4{
+    color: rgb(0, 0, 0);
+font-family: Forum;
+font-size: 20px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 2%;
+text-align: center;
+text-transform: uppercase;
 }
 
 header{
@@ -275,7 +288,7 @@ input[type="radio"]:checked+span {
         accent-color: #232323;
     }
     label{
-        padding: 10px;
+
         cursor: pointer;
     }
     input{
@@ -581,7 +594,7 @@ letter-spacing: 2%;
 text-align: center;
 }
 
-form{
+.form_libraryCards{
     width: 560px;
 height: 272px;
 background: rgb(187, 148, 95);
@@ -1260,3 +1273,130 @@ padding-top: 15px;
     opacity: 0;
     transition: all 1s linear;
   }
+
+  /* --------------------------------------------------------- REGISTER MODAL ---------------------------------------------*/
+.register_wrapper{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(20,20,20,0.3);
+    align-items: center;
+    justify-content: center;
+}
+.register_form{
+    width: 250px;
+    height: 382px;
+    background: white;
+}
+.register_form{
+    display: flex;
+    flex-direction: column;
+}
+.register_head{
+    display: flex;
+    justify-content: space-between;
+}
+.container_form{
+    display: flex;
+    flex-direction: column;
+
+font-family: Inter;
+font-size: 15px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 2%;
+padding-left: 25px;
+}
+.register_form__modal{
+    border: 1px solid rgb(187, 148, 95);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+.container_form__footer{
+    display: flex;
+}
+.signin_btn{
+    position: relative;
+    background-color: #FFF;
+    color: rgb(12, 12, 14);
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid rgb(12, 12, 14);
+    border-radius: 2px;
+
+    width: 75px;
+    height: 30px;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+.container_form__footer{
+    margin-top: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    color: rgb(0, 0, 0);
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0%;
+    text-align: left;
+
+}
+.container_form__footer-text{
+    margin-right: 10px;
+}
+.container_form__footer-login{
+    color: rgb(12, 12, 14);
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration-line: underline;
+    background-color: white;
+}
+.register_title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 85px;
+
+}
+/* крестик */
+.close{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+
+}
+.close_line1{
+    position: absolute;
+width: 22px;
+height: 0;
+left: 14px;
+top: 21px;
+transform: rotate(44.71deg);
+border: 2px solid rgb(12, 12, 14);
+background-color: #000;
+}
+.close_line2{
+    position: absolute;
+width: 22px;
+height: 0;
+left: 14px;
+top: 21px;
+transform: rotate(-44.71deg);
+border: 2px solid rgb(12, 12, 14);
+background-color: #000;
+}
+   /* --------------------------------------------------------- REGISTER MODAL ---------------------------------------------*/

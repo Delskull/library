@@ -18,6 +18,14 @@ document.addEventListener("click", function (event) {
     headerMenu.classList.remove("open");
   }
 });
+// окно логина по кнопке профиля
+const profileLogo = document.querySelector(".header_icon");
+let profileLogin = document.querySelector(".profile_login");
+profileLogo.addEventListener("click", function () {
+  profileLogin.classList.toggle("visibility");
+  headerMenu.classList.remove("open");
+});
+
 
 // slider
 let offset = 0;
@@ -167,12 +175,3 @@ springButton.addEventListener("click", targetClick);
 summerButton.addEventListener("click", targetClick);
 autumnButton.addEventListener("click", targetClick);
 
-// окно логина по кнопке профиля
-const profileLogo = document.querySelector(".header_icon");
-let profileLogin = document.querySelector(".profile_login");
-profileLogo.addEventListener("click", () => {
-  profileLogin.classList.toggle("visibility");
-});
-profileLogo.addEventListener("click", () => {
-  headerMenu.classList.remove("open");
-});

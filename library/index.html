@@ -19,6 +19,7 @@
   </head>
   <body>
     <div class="content">
+
       <header>
         <div class="container">
           <nav class="header">
@@ -45,9 +46,9 @@
               <img src="assets/svg/icon_profile.svg" alt="icon_profile" />
             </button>
             <div class="profile_login visibility">
-              <div class="profile_login__title  info_title__login">Profile</div>
+              <div class="profile_login__title info_title__login">Profile</div>
               <div class="profile_login__login">Log In</div>
-              <div class="profile_login__logout">Register</div>
+              <div class="profile_login__logout"><button>Register</button></div>
             </div>
 
             <button class="header_burger">
@@ -59,6 +60,62 @@
         </div>
       </header>
       <div class="main">
+        <div class="register_wrapper visibility">
+          <form class="register_form" action="#">
+            <div class="register_head">
+            <div class="register_title">
+              <h4>Register</h4> </div>
+              <button class="close">
+                <span class="close_line1"></span>
+                <span class="close_line2"></span>
+              </button>
+              </div>
+              <div class="container_form">
+                <label for="text">First Name</label>
+
+                <input
+                class="register_form__modal"
+                  type="text"
+                  placeholder="Enter Name"
+                  name="name"
+                  required
+                />
+                <label for="text">Last Name</label>
+
+                <input
+                class="register_form__modal"
+                  type="text"
+                  placeholder="Enter Last Name"
+                  name="Last Name"
+                  required
+                />
+                <label for="email">Email</label>
+
+                <input
+                class="register_form__modal"
+                  type="text"
+                  placeholder="Enter Email"
+                  name="email"
+                  required
+                />
+                <label for="psw">Password</label>
+
+                <input
+                class="register_form__modal"
+                  type="password"
+                  placeholder="Enter Password"
+                  name="psw"
+                  required
+                />
+                <button class="signin_btn">Sign Up</button>
+              </div>
+              <div class="container_form__footer">
+                <div class="container_form__footer-text">Already have an account?</div>
+                <div ><button class="container_form__footer-login">LogIn</button></div>
+              </div>
+            </div>
+          </form>
+        </div>
         <div class="container">
           <section class="welcome">
             <div class="welcome_text">
@@ -648,7 +705,11 @@
             </div>
             <div class="libraryCards_cards">
               <div class="cards_login">
-                <form action="/index.php" method="POST">
+                <form
+                  class="form_libraryCards"
+                  action="/index.php"
+                  method="POST"
+                >
                   <div class="cards_login__header">Brooklyn Public Library</div>
                   <br />
                   <input
