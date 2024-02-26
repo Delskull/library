@@ -95,7 +95,7 @@ background-color: #FFF;
 z-index: 3;
 visibility: visible;
 opacity: 1;
-transition: all 1s linear;
+transition: all 0.3s linear;
 }
 
 
@@ -1271,13 +1271,13 @@ padding-top: 15px;
   .visibility{
     visibility: hidden;
     opacity: 0;
-    transition: all 1s linear;
+    transition: all 0.3s linear;
   }
 
   /* --------------------------------------------------------- REGISTER MODAL ---------------------------------------------*/
 .register_wrapper{
     display: flex;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
@@ -1285,15 +1285,20 @@ padding-top: 15px;
     background-color: rgba(20,20,20,0.3);
     align-items: center;
     justify-content: center;
+    z-index: 3;
 }
 .register_form{
     width: 250px;
     height: 382px;
     background: white;
+    opacity: 1;
+    transition: all 0.5s linear;
 }
 .register_form{
     display: flex;
     flex-direction: column;
+    position: fixed;
+
 }
 .register_head{
     display: flex;

@@ -26,7 +26,6 @@ profileLogo.addEventListener("click", function () {
   headerMenu.classList.remove("open");
 });
 
-
 // slider
 let offset = 0;
 let circle2 = document.querySelector(".circle_2");
@@ -175,3 +174,34 @@ springButton.addEventListener("click", targetClick);
 summerButton.addEventListener("click", targetClick);
 autumnButton.addEventListener("click", targetClick);
 
+// модальное окно регистрации
+const registrBtn = document.querySelector(".profile_login__logout");
+const popUpRegistr = document.querySelector(".register_wrapper");
+const buttonSignUp = document.querySelector(".button_signup");
+const closeBtn = document.querySelector(".close");
+registrBtn.addEventListener("click", function () {
+  popUpRegistr.classList.toggle("visibility");
+  profileLogin.classList.toggle("visibility");
+});
+buttonSignUp.addEventListener("click", function () {
+  popUpRegistr.classList.toggle("visibility");
+});
+// крестик закрывает модалку
+closeBtn.addEventListener("click", function () {
+  closeBtnCross();
+  wrapperToggleClick();
+});
+
+function wrapperToggleClick() {
+  popUpRegistr.addEventListener("click", function (event) {
+    if (event.target.classList.contains("register_wrapper")) {
+      popUpRegistr.classList.add("visibility");
+    }
+  });
+}
+
+function closeBtnCross() {
+  closeBtn.addEventListener("click", function () {
+    popUpRegistr.classList.add("visibility");
+  });
+}
