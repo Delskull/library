@@ -43,6 +43,7 @@
             </ul>
 
             <button class="header_icon">
+              <div class="autorize_name"></div>
               <img src="assets/svg/icon_profile.svg" alt="icon_profile" />
             </button>
             <div class="profile_login visibility">
@@ -77,6 +78,7 @@
                 class="register_form__modal"
                   type="text"
                   placeholder="Enter Name"
+                  id="firstName"
                   name="name"
                   required
                 />
@@ -85,6 +87,7 @@
                 <input
                 class="register_form__modal"
                   type="text"
+                  id="lastName"
                   placeholder="Enter Last Name"
                   name="Last Name"
                   required
@@ -93,7 +96,8 @@
 
                 <input
                 class="register_form__modal"
-                  type="text"
+                  type="email"
+                  id="email"
                   placeholder="Enter Email"
                   name="email"
                   required
@@ -102,9 +106,11 @@
 
                 <input
                 class="register_form__modal"
+                id="password"
                   type="password"
                   placeholder="Enter Password"
                   name="psw"
+                  minlength="8"
                   required
                 />
                 <button class="signin_btn">Sign Up</button>

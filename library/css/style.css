@@ -1405,3 +1405,17 @@ border: 2px solid rgb(12, 12, 14);
 background-color: #000;
 }
    /* --------------------------------------------------------- REGISTER MODAL ---------------------------------------------*/
+
+ /* --------------------------------------------------------- Symbol Name ---------------------------------------------*/
+   .autorize_name{
+    display: flex;
+    position: fixed;
+    width: 28px;
+    height: 28px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+   }
+   /* --------------------------------------------------------- Symbol Name ---------------------------------------------*/

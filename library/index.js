@@ -205,3 +205,44 @@ function closeBtnCross() {
     popUpRegistr.classList.add("visibility");
   });
 }
+// данные формы
+const registerForm = document.querySelector(".register_form");
+const passwordInput = document.getElementById("password");
+const firstNameUser = document.getElementById("firstName");
+const lastNameUser = document.getElementById("lastName");
+const emailUser = document.getElementById("email");
+// сохраняем инпуты в локал сторадж
+registerForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const passwordValue = passwordInput.value;
+  const firstNameValue = firstNameUser.value;
+  const lastNameValue = lastNameUser.value;
+  const emailValue = emailUser.value;
+
+  const formData = {
+    name: firstNameValue,
+    lastName: lastNameValue,
+    email: emailValue,
+    password: passwordValue,
+  };
+
+  const formDataJSON = JSON.stringify(formData);
+  localStorage.setItem("formData", formDataJSON);
+});
+// достать данные из локала
+const storedFormData = localStorage.getItem('formData');
+let firstLetterName = document.querySelector('.autorize_name')
+// Заглавные буквы вместо иконки пользователя
+function firstLetters (){
+
+if (storedFormData) {
+    const parsedFormData = JSON.parse(storedFormData);
+    // Используйте parsedFormData для дальнейшей обработки данных формы
+    let name1 = parsedFormData.name[0].toUpperCase()
+    let name2 = parsedFormData.lastName[0].toUpperCase()
+    let name3 = '' + name1 + name2
+    console.log(name3);
+}
+}
+firstLetters ()
