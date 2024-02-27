@@ -237,10 +237,10 @@ registerForm.addEventListener("submit", function (event) {
 const generateCardNumber = () => {
   let cardNumber = "";
   for (let i = 0; i < 9; i++) {
-  cardNumber += Math.floor(Math.random() * 16).toString(16);
+    cardNumber += Math.floor(Math.random() * 16).toString(16);
   }
   return cardNumber.toUpperCase();
-  };
+};
 
 // достать данные из локала
 const storedFormData = localStorage.getItem("users");
@@ -251,13 +251,26 @@ function firstLetters() {
     const parsednewUser = JSON.parse(storedFormData);
     //  parsedFormData для дальнейшей обработки данных формы
     let name1 = parsednewUser[parsednewUser.length - 1].name[0].toUpperCase();
-    let name2 = parsednewUser[parsednewUser.length - 1].lastName[0].toUpperCase();
+    let name2 =
+      parsednewUser[parsednewUser.length - 1].lastName[0].toUpperCase();
     let firstSymbol = "" + name1 + name2;
     firstLetterName.innerHTML = firstSymbol;
     firstLetterName.style.opacity = 1;
+    titleName();
     // console.log(firstSymbol);
   }
 }
 firstLetters();
 
-//
+// всплывающий title при наведении на буквы имени
+function titleName() {
+  firstLetterName.addEventListener("mouseover", function () {
+    const parsednewUser = JSON.parse(storedFormData);
+    let name1 = parsednewUser[parsednewUser.length - 1].name;
+    let name2 = parsednewUser[parsednewUser.length - 1].lastName;
+    let firstSymbol = name1 + " " + name2;
+    firstLetterName.setAttribute("title", firstSymbol + "");
+    console.log(name1);
+  });
+}
+
