@@ -1409,7 +1409,7 @@ background-color: #000;
  /* --------------------------------------------------------- Symbol Name ---------------------------------------------*/
    .autorize_name{
     display: flex;
-    position: fixed;
+    position: absolute;
     width: 28px;
     height: 28px;
     justify-content: center;

@@ -213,36 +213,51 @@ const lastNameUser = document.getElementById("lastName");
 const emailUser = document.getElementById("email");
 // сохраняем инпуты в локал сторадж
 registerForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   const passwordValue = passwordInput.value;
   const firstNameValue = firstNameUser.value;
   const lastNameValue = lastNameUser.value;
   const emailValue = emailUser.value;
 
-  const formData = {
+  const newUser = {
     name: firstNameValue,
     lastName: lastNameValue,
     email: emailValue,
     password: passwordValue,
+    cardNumber: generateCardNumber(),
+  };
+  const existingData = JSON.parse(localStorage.getItem("users")) || [];
+  existingData.push(newUser);
+  localStorage.setItem("users", JSON.stringify(existingData));
+  // event.target.reset();
+  firstLetters();
+});
+// генератор 16 значной карты
+const generateCardNumber = () => {
+  let cardNumber = "";
+  for (let i = 0; i < 9; i++) {
+  cardNumber += Math.floor(Math.random() * 16).toString(16);
+  }
+  return cardNumber.toUpperCase();
   };
 
-  const formDataJSON = JSON.stringify(formData);
-  localStorage.setItem("formData", formDataJSON);
-});
 // достать данные из локала
-const storedFormData = localStorage.getItem('formData');
-let firstLetterName = document.querySelector('.autorize_name')
+const storedFormData = localStorage.getItem("users");
+let firstLetterName = document.querySelector(".autorize_name");
 // Заглавные буквы вместо иконки пользователя
-function firstLetters (){
+function firstLetters() {
+  if (storedFormData) {
+    const parsednewUser = JSON.parse(storedFormData);
+    //  parsedFormData для дальнейшей обработки данных формы
+    let name1 = parsednewUser[parsednewUser.length - 1].name[0].toUpperCase();
+    let name2 = parsednewUser[parsednewUser.length - 1].lastName[0].toUpperCase();
+    let firstSymbol = "" + name1 + name2;
+    firstLetterName.innerHTML = firstSymbol;
+    firstLetterName.style.opacity = 1;
+    // console.log(firstSymbol);
+  }
+}
+firstLetters();
 
-if (storedFormData) {
-    const parsedFormData = JSON.parse(storedFormData);
-    // Используйте parsedFormData для дальнейшей обработки данных формы
-    let name1 = parsedFormData.name[0].toUpperCase()
-    let name2 = parsedFormData.lastName[0].toUpperCase()
-    let name3 = '' + name1 + name2
-    console.log(name3);
-}
-}
-firstLetters ()
+//
