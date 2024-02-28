@@ -1422,3 +1422,18 @@ background-color: #000;
     opacity: 1;
    }
    /* --------------------------------------------------------- Symbol Name ---------------------------------------------*/
+
+   /* -----------------------------------Hiden information on library cards ---------------------------------------------*/
+   .cards_information__container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: -33px;
+
+   }
+   .information_colomn{
+    margin-right: 30px;
+
+   }
+/* -----------------------------------Hiden information on library cards ---------------------------------------------*/

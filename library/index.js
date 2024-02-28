@@ -212,7 +212,7 @@ const firstNameUser = document.getElementById("firstName");
 const lastNameUser = document.getElementById("lastName");
 const emailUser = document.getElementById("email");
 
-// генератор 16 значной карты
+//генератор 16 значной карты
 const generateCardNumber = () => {
   let cardNumber = "";
   for (let i = 0; i < 9; i++) {
@@ -226,28 +226,6 @@ const storedFormData = localStorage.getItem("users");
 let firstLetterName = document.querySelector(".autorize_name");
 const registerButton = document.querySelector(".signin_btn");
 
-let visits = localStorage.getItem("users");
-function visitsCount() {
-  if (visits) {
-    visits = JSON.parse(visits);
-    let count = visits[0].visits;
-    // console.log(visits);
-
-    visits.forEach((element) => element.visits++);
-    localStorage.setItem('users',JSON.stringify(visits))
-    console.log(visits)
-
-  }
-}
-// //   if (visits === null){
-// //     visits = 1
-// //   }
-
-// //   visits++;
-// //   localStorage.setItem("user", visits);
-
-// // return visits
-// }
 
 const db = {
   addUser() {
@@ -266,6 +244,8 @@ const db = {
         password: passwordValue,
         cardNumber: generateCardNumber(),
         visits: 0,
+        bonuses: '0',
+        books: '0',
       };
       // сохраняем локал
       const existingData = JSON.parse(localStorage.getItem("users")) || [];
@@ -299,9 +279,22 @@ const db = {
       }
     });
   },
+  visitsCount() {
+    let visits = localStorage.getItem("users");
+    if (visits) {
+      visits = JSON.parse(visits);
+      let count = visits[0].visits;
+      // console.log(visits);
+
+      visits.forEach((element) => element.visits++);
+      localStorage.setItem("users", JSON.stringify(visits));
+    }
+  },
+
+
 };
 
 db.addUser();
 db.titleName();
 db.firstLetters();
-visitsCount();
+db.visitsCount();
