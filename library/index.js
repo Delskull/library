@@ -211,28 +211,7 @@ const passwordInput = document.getElementById("password");
 const firstNameUser = document.getElementById("firstName");
 const lastNameUser = document.getElementById("lastName");
 const emailUser = document.getElementById("email");
-// сохраняем инпуты в локал сторадж
-registerForm.addEventListener("submit", function (event) {
-  // event.preventDefault();
 
-  const passwordValue = passwordInput.value;
-  const firstNameValue = firstNameUser.value;
-  const lastNameValue = lastNameUser.value;
-  const emailValue = emailUser.value;
-
-  const newUser = {
-    name: firstNameValue,
-    lastName: lastNameValue,
-    email: emailValue,
-    password: passwordValue,
-    cardNumber: generateCardNumber(),
-  };
-  const existingData = JSON.parse(localStorage.getItem("users")) || [];
-  existingData.push(newUser);
-  localStorage.setItem("users", JSON.stringify(existingData));
-  // event.target.reset();
-  firstLetters();
-});
 // генератор 16 значной карты
 const generateCardNumber = () => {
   let cardNumber = "";
@@ -245,32 +224,84 @@ const generateCardNumber = () => {
 // достать данные из локала
 const storedFormData = localStorage.getItem("users");
 let firstLetterName = document.querySelector(".autorize_name");
-// Заглавные буквы вместо иконки пользователя
-function firstLetters() {
-  if (storedFormData) {
-    const parsednewUser = JSON.parse(storedFormData);
-    //  parsedFormData для дальнейшей обработки данных формы
-    let name1 = parsednewUser[parsednewUser.length - 1].name[0].toUpperCase();
-    let name2 =
-      parsednewUser[parsednewUser.length - 1].lastName[0].toUpperCase();
-    let firstSymbol = "" + name1 + name2;
-    firstLetterName.innerHTML = firstSymbol;
-    firstLetterName.style.opacity = 1;
-    titleName();
-    // console.log(firstSymbol);
+const registerButton = document.querySelector(".signin_btn");
+
+let visits = localStorage.getItem("users");
+function visitsCount() {
+  if (visits) {
+    visits = JSON.parse(visits);
+    let count = visits[0].visits;
+    // console.log(visits);
+
+    visits.forEach((element) => element.visits++);
+    localStorage.setItem('users',JSON.stringify(visits))
+    console.log(visits)
+
   }
 }
-firstLetters();
+// //   if (visits === null){
+// //     visits = 1
+// //   }
 
-// всплывающий title при наведении на буквы имени
-function titleName() {
-  firstLetterName.addEventListener("mouseover", function () {
-    const parsednewUser = JSON.parse(storedFormData);
-    let name1 = parsednewUser[parsednewUser.length - 1].name;
-    let name2 = parsednewUser[parsednewUser.length - 1].lastName;
-    let firstSymbol = name1 + " " + name2;
-    firstLetterName.setAttribute("title", firstSymbol + "");
-    console.log(name1);
-  });
-}
+// //   visits++;
+// //   localStorage.setItem("user", visits);
 
+// // return visits
+// }
+
+const db = {
+  addUser() {
+    registerForm.addEventListener("submit", function (event) {
+      // event.preventDefault();
+
+      const passwordValue = passwordInput.value;
+      const firstNameValue = firstNameUser.value;
+      const lastNameValue = lastNameUser.value;
+      const emailValue = emailUser.value;
+
+      const newUser = {
+        name: firstNameValue,
+        lastName: lastNameValue,
+        email: emailValue,
+        password: passwordValue,
+        cardNumber: generateCardNumber(),
+        visits: 0,
+      };
+      // сохраняем локал
+      const existingData = JSON.parse(localStorage.getItem("users")) || [];
+      existingData.push(newUser);
+      localStorage.setItem("users", JSON.stringify(existingData));
+      // event.target.reset();
+    });
+  },
+
+  firstLetters() {
+    if (storedFormData) {
+      const parsednewUser = JSON.parse(storedFormData);
+      //  parsedFormData для дальнейшей обработки данных формы
+      let name1 = parsednewUser[parsednewUser.length - 1].name[0].toUpperCase();
+      let name2 =
+        parsednewUser[parsednewUser.length - 1].lastName[0].toUpperCase();
+      let firstSymbol = "" + name1 + name2;
+      firstLetterName.innerHTML = firstSymbol;
+      firstLetterName.style.opacity = 1;
+    }
+  },
+
+  titleName() {
+    firstLetterName.addEventListener("mouseover", function () {
+      if (storedFormData) {
+        const parsednewUser = JSON.parse(storedFormData);
+        let name1 = parsednewUser[parsednewUser.length - 1].name;
+        let name2 = parsednewUser[parsednewUser.length - 1].lastName;
+        let firstSymbol = name1 + " " + name2;
+        firstLetterName.setAttribute("title", firstSymbol + "");
+      }
+    });
+  },
+};
+
+db.addUser();
+db.titleName();
+db.firstLetters();
+visitsCount();
