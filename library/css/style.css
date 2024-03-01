@@ -553,7 +553,7 @@ text-transform: capitalize;
     flex-direction: column;
     box-sizing: border-box;
 border: 3px solid rgb(187, 148, 95);
-padding: 20px 20px 94px 20px;
+padding: 20px 20px 120px 20px;
 
 }
 .cards_account{
@@ -1429,11 +1429,18 @@ background-color: #000;
     position: relative;
     justify-content: center;
     align-items: center;
-    margin-top: -33px;
+    margin-top: -40px;
+    transition: all 0.3s linear;
 
    }
    .information_colomn{
+    display: flex;
     margin-right: 30px;
-
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+   .information_colomn__icon{
+    margin: 10px 0;
    }
 /* -----------------------------------Hiden information on library cards ---------------------------------------------*/

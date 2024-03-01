@@ -226,7 +226,6 @@ const storedFormData = localStorage.getItem("users");
 let firstLetterName = document.querySelector(".autorize_name");
 const registerButton = document.querySelector(".signin_btn");
 
-
 const db = {
   addUser() {
     registerForm.addEventListener("submit", function (event) {
@@ -244,8 +243,8 @@ const db = {
         password: passwordValue,
         cardNumber: generateCardNumber(),
         visits: 0,
-        bonuses: '0',
-        books: '0',
+        bonuses: "0",
+        books: "0",
       };
       // сохраняем локал
       const existingData = JSON.parse(localStorage.getItem("users")) || [];
@@ -290,11 +289,77 @@ const db = {
       localStorage.setItem("users", JSON.stringify(visits));
     }
   },
-
-
 };
 
 db.addUser();
 db.titleName();
 db.firstLetters();
 db.visitsCount();
+// делаем Если введённые имя и номер карты совпадают с данными пользователя,
+//то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
+//кнопка чек зе кард с данными
+const checkTheCardButton = document.querySelector(".cards_button");
+const informationMenu = document.querySelector(".cards_information__container");
+let readerNameUser;
+let readerCardNumber; // карта юзера из локала
+const formLybraryCard = document.querySelector(".form_libraryCards");
+let visitCountOnProfile = visitsCount();
+let userName;
+console.log(visitCountOnProfile);
+
+
+function showProfileStats() {
+  // проверяем наличие данных в локале
+  let dataInLocal = localStorage.getItem("users");
+  if (dataInLocal) {
+
+    if (readerNameUser === userName && readerCardNumber === userCardNumber) {
+      checkTheCardButton.classList.add("visibility");
+      informationMenu.classList.remove("visibility");
+      setTimeout(() => {
+        checkTheCardButton.classList.remove("visibility");
+        informationMenu.classList.add("visibility");
+      }, "10000");
+
+    } else alert("Library cards not found");
+  } else alert("you are not register");
+}
+
+function formCheckLibraryCards() {
+  formLybraryCard.addEventListener("submit", function (event) {
+    event.preventDefault();
+    readerNameUser = document.querySelector(".input_name").value;
+    userCardNumber = document.querySelector(".input_card").value;
+    getUserName();
+    getUserCards();
+    showProfileStats();
+    setTimeout(() => {
+      event.target.reset()
+    }, "10000");
+  });
+}
+formCheckLibraryCards();
+// достаём имя из локал стоража
+function getUserName() {
+  let localData = localStorage.getItem("users");
+  localData = JSON.parse(localData);
+  userName = localData[0].name;
+  return userName;
+}
+//достаём номер карты юзера
+function getUserCards() {
+  let localData = localStorage.getItem("users");
+  localData = JSON.parse(localData);
+  readerCardNumber = localData[0].cardNumber;
+  return readerCardNumber;
+}
+// получаем число посещений
+function visitsCount() {
+  let visits = localStorage.getItem("users");
+  if (visits) {
+    visits = JSON.parse(visits);
+    let userCount = visits[0].visits;
+    return userCount;
+  }
+}
+
