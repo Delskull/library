@@ -19,7 +19,6 @@
   </head>
   <body>
     <div class="content">
-
       <header>
         <div class="container">
           <nav class="header">
@@ -43,7 +42,7 @@
             </ul>
 
             <button class="header_icon">
-              <div class="autorize_name"></div>
+              <span class="autorize_name"></span>
               <img src="assets/svg/icon_profile.svg" alt="icon_profile" />
             </button>
             <div class="profile_login visibility">
@@ -119,7 +118,46 @@
                 <div class="container_form__footer-text">Already have an account?</div>
                 <div ><a href="#" class="container_form__footer-login">LogIn</a></div>
               </div>
-            </div>
+
+          </form>
+        </div>
+        <div class="register_wrapper visibility">
+          <form class="register_form login_form" action="#">
+            <div class="register_head">
+            <div class="register_title">
+              <h4>Login</h4> </div>
+              <a href="#" class="close">
+                <span class="close_line1"></span>
+                <span class="close_line2"></span>
+              </a>
+              </div>
+              <div class="container_form">
+                <label for="text">E-mail or readers card</label>
+
+                <input
+                class="register_form__modal"
+                  type="text"
+                  placeholder="E-mail or readers card"
+                  id="emailOrCard"
+                  required
+                />
+                <label for="psw">Password</label>
+
+                <input
+                class="register_form__modal"
+                id="loginPassword"
+                  type="password"
+                  placeholder="Enter Password"
+                  name="psw"
+                  minlength="8"
+                  required
+                />
+                <button class="signin_btn" id="loginButton">Log In</button>
+              </div>
+              <div class="container_form__footer">
+                <div class="container_form__footer-text">Don’t have an account?</div>
+                <div ><a href="#" class="container_form__footer-login">Register</a></div>
+              </div>
           </form>
         </div>
         <div class="container">
@@ -728,7 +766,7 @@
                   /><br />
                   <input
                     class="input_card"
-                    
+
                     name="cardnumber"
                     value=""
                     placeholder="Card number"
@@ -738,7 +776,7 @@
                     <div class="information_colomn">
                       <div class="information_colomn__title">Visits</div>
                       <div class="information_colomn__icon"><img src="assets/svg/Union.svg" alt="union"></div>
-                      <div class="information_colomn__count">1</div>
+                      <div class="information_colomn__count count_visits"></div>
                     </div>
                     <div class="information_colomn">
                       <div class="information_colomn__title">Bonuses</div>
@@ -823,7 +861,7 @@
           </div>
         </div>
       </footer>
-    </div>
+      </div>
     <script src="index.js"></script>
   </body>
 </html>

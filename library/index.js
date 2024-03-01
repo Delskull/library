@@ -295,6 +295,7 @@ db.addUser();
 db.titleName();
 db.firstLetters();
 db.visitsCount();
+
 // делаем Если введённые имя и номер карты совпадают с данными пользователя,
 //то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
 //кнопка чек зе кард с данными
@@ -303,16 +304,17 @@ const informationMenu = document.querySelector(".cards_information__container");
 let readerNameUser;
 let readerCardNumber; // карта юзера из локала
 const formLybraryCard = document.querySelector(".form_libraryCards");
-let visitCountOnProfile = visitsCount();
+let visitCountOnProfile = visitsCount(); // счётчик посещений
 let userName;
 console.log(visitCountOnProfile);
-
+// прикручиваем счётчик к инфе в диджитал кардс
+const countVisits = document.querySelector(".count_visits");
+countVisits.innerHTML = visitCountOnProfile;
 
 function showProfileStats() {
   // проверяем наличие данных в локале
   let dataInLocal = localStorage.getItem("users");
   if (dataInLocal) {
-
     if (readerNameUser === userName && readerCardNumber === userCardNumber) {
       checkTheCardButton.classList.add("visibility");
       informationMenu.classList.remove("visibility");
@@ -320,7 +322,6 @@ function showProfileStats() {
         checkTheCardButton.classList.remove("visibility");
         informationMenu.classList.add("visibility");
       }, "10000");
-
     } else alert("Library cards not found");
   } else alert("you are not register");
 }
@@ -334,7 +335,7 @@ function formCheckLibraryCards() {
     getUserCards();
     showProfileStats();
     setTimeout(() => {
-      event.target.reset()
+      event.target.reset();
     }, "10000");
   });
 }
@@ -362,4 +363,3 @@ function visitsCount() {
     return userCount;
   }
 }
-
