@@ -425,3 +425,27 @@ switchRegister.addEventListener('click', function(){
   popUpRegistr.classList.remove('visibility');
   popUpLogin.classList.add('visibility')
 });
+//авторизация
+const loginForm = document.querySelector('.login_form')
+
+loginForm.addEventListener('submit', function(event){
+  let loginInputEmailCard = document.querySelector('.login_form__email-card').value
+let loginInputPassword = document.querySelector('.login_form__password').value
+let localData = localStorage.getItem("users");
+event.preventDefault();
+if (localData) {
+  // получаем емейл карту и пароль из локала
+  let parseLocalData = JSON.parse(localData);
+  let email = parseLocalData[0].email;
+    let cards = parseLocalData[0].cardNumber;
+    let password = parseLocalData[0].password;
+    // делаем проверку локала и инпута
+    if (((email === loginInputEmailCard) || (cards === loginInputEmailCard)) && password === loginInputPassword ){
+      console.log(parseLocalData[0].active)
+      // присваиваем авторизацию
+      parseLocalData.forEach((element) => element.active = true);
+      localStorage.setItem("users", JSON.stringify(parseLocalData));
+    }
+}
+})
+
