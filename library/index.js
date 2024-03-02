@@ -181,11 +181,10 @@ const popUpRegistr = document.querySelector(".register_wrapper");
 const popUpLogin = document.querySelector(".register_wrapper__login");
 const buttonSignUp = document.querySelector(".button_signup");
 const closeBtn = document.querySelector(".close");
-const closeBtnLogin = document.querySelector('.close_login')
-const buttonLoginOnCards = document.querySelector('.button_login')
-const buyBooksButton = document.querySelectorAll('.button1')
+const closeBtnLogin = document.querySelector(".close_login");
+const buttonLoginOnCards = document.querySelector(".button_login");
+const buyBooksButton = document.querySelectorAll(".button1");
 // console.log(buyBooksButton)
-
 
 loginBtn.addEventListener("click", function () {
   popUpLogin.classList.toggle("visibility");
@@ -199,18 +198,18 @@ registrBtn.addEventListener("click", function () {
 buttonSignUp.addEventListener("click", function () {
   popUpRegistr.classList.toggle("visibility");
 });
+
 // крестик закрывает модалку
 closeBtn.addEventListener("click", function () {
   closeBtnCross();
 });
 
-closeBtnLogin.addEventListener('click', function(){
-  popUpLogin.classList.add('visibility')
-})
-buttonLoginOnCards.addEventListener('click', function(){
-  popUpLogin.classList.remove('visibility')
-})
-
+closeBtnLogin.addEventListener("click", function () {
+  popUpLogin.classList.add("visibility");
+});
+buttonLoginOnCards.addEventListener("click", function () {
+  popUpLogin.classList.remove("visibility");
+});
 
 function wrapperToggleClick() {
   popUpRegistr.addEventListener("click", function (event) {
@@ -325,7 +324,7 @@ db.firstLetters();
 db.visitsCount();
 wrapperToggleClick();
 wrapperToggleClickLogin();
-loginIfNotAutorization ();
+loginIfNotAutorization();
 
 // делаем Если введённые имя и номер карты совпадают с данными пользователя,
 //то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
@@ -399,18 +398,18 @@ function visitsCount() {
   }
 }
 // клик по книгам без авторизации --> меню логина
-function loginIfNotAutorization (){
+function loginIfNotAutorization() {
   let localData = localStorage.getItem("users");
-  if (localData){
+  if (localData) {
     let parseLocalData = JSON.parse(localData);
     let autorization = parseLocalData[0].active;
-    console.log(autorization)
-    if(autorization === false){
-buyBooksButton.forEach((elem) => {
-  elem.addEventListener('click',function(){
-    popUpLogin.classList.remove('visibility')
-  })
-});
+    console.log(autorization);
+    if (autorization === false) {
+      buyBooksButton.forEach((elem) => {
+        elem.addEventListener("click", function () {
+          popUpLogin.classList.remove("visibility");
+        });
+      });
+    }
   }
 }
-};

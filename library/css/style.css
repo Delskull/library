@@ -686,6 +686,25 @@ background-color: #FFF;
     margin-top: 41px;
     margin-left: 20px;
 }
+.button_signup{
+    box-sizing: border-box;
+    border: 1px solid rgb(12, 12, 14);
+    border-radius: 2px;
+    width: 75px;
+    height: 30px;
+    color: rgb(12, 12, 14);
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.button_signup:hover{
+    background-color: #bb945f;
+    border: 1px solid #bb945f;
+    transition: all 1s;
+    }
 .cards_account__text{
     color: rgb(0, 0, 0);
 font-family: Inter;
