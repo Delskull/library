@@ -183,6 +183,9 @@ const buttonSignUp = document.querySelector(".button_signup");
 const closeBtn = document.querySelector(".close");
 const closeBtnLogin = document.querySelector('.close_login')
 const buttonLoginOnCards = document.querySelector('.button_login')
+const buyBooksButton = document.querySelectorAll('.button1')
+// console.log(buyBooksButton)
+
 
 loginBtn.addEventListener("click", function () {
   popUpLogin.classList.toggle("visibility");
@@ -269,7 +272,7 @@ const db = {
         visits: 0,
         bonuses: "0",
         books: "0",
-        active: true,
+        active: false,
       };
       // сохраняем локал
       const existingData = JSON.parse(localStorage.getItem("users")) || [];
@@ -322,6 +325,7 @@ db.firstLetters();
 db.visitsCount();
 wrapperToggleClick();
 wrapperToggleClickLogin();
+loginIfNotAutorization ();
 
 // делаем Если введённые имя и номер карты совпадают с данными пользователя,
 //то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
@@ -394,3 +398,19 @@ function visitsCount() {
     return userCount;
   }
 }
+// клик по книгам без авторизации --> меню логина
+function loginIfNotAutorization (){
+  let localData = localStorage.getItem("users");
+  if (localData){
+    let parseLocalData = JSON.parse(localData);
+    let autorization = parseLocalData[0].active;
+    console.log(autorization)
+    if(autorization === false){
+buyBooksButton.forEach((elem) => {
+  elem.addEventListener('click',function(){
+    popUpLogin.classList.remove('visibility')
+  })
+});
+  }
+}
+};
