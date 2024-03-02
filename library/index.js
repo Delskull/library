@@ -413,3 +413,15 @@ function loginIfNotAutorization() {
     }
   }
 }
+// мини кнопки регистрации и логина и переход между ними
+const switchLogin = document.querySelector('.container_form__footer-login')
+const switchRegister = document.querySelector('.container_form__footer-register')
+switchLogin.addEventListener('click', function(){
+  popUpRegistr.classList.add('visibility');
+  popUpLogin.classList.remove('visibility')
+});
+
+switchRegister.addEventListener('click', function(){
+  popUpRegistr.classList.remove('visibility');
+  popUpLogin.classList.add('visibility')
+});
