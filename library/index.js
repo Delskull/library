@@ -176,9 +176,19 @@ autumnButton.addEventListener("click", targetClick);
 
 // модальное окно регистрации
 const registrBtn = document.querySelector(".profile_login__logout");
+const loginBtn = document.querySelector(".login_button");
 const popUpRegistr = document.querySelector(".register_wrapper");
+const popUpLogin = document.querySelector(".register_wrapper__login");
 const buttonSignUp = document.querySelector(".button_signup");
 const closeBtn = document.querySelector(".close");
+const closeBtnLogin = document.querySelector('.close_login')
+const buttonLoginOnCards = document.querySelector('.button_login')
+
+loginBtn.addEventListener("click", function () {
+  popUpLogin.classList.toggle("visibility");
+  profileLogin.classList.toggle("visibility");
+});
+
 registrBtn.addEventListener("click", function () {
   popUpRegistr.classList.toggle("visibility");
   profileLogin.classList.toggle("visibility");
@@ -189,8 +199,15 @@ buttonSignUp.addEventListener("click", function () {
 // крестик закрывает модалку
 closeBtn.addEventListener("click", function () {
   closeBtnCross();
-  wrapperToggleClick();
 });
+
+closeBtnLogin.addEventListener('click', function(){
+  popUpLogin.classList.add('visibility')
+})
+buttonLoginOnCards.addEventListener('click', function(){
+  popUpLogin.classList.remove('visibility')
+})
+
 
 function wrapperToggleClick() {
   popUpRegistr.addEventListener("click", function (event) {
@@ -200,11 +217,18 @@ function wrapperToggleClick() {
   });
 }
 
-function closeBtnCross() {
-  closeBtn.addEventListener("click", function () {
-    popUpRegistr.classList.add("visibility");
+function wrapperToggleClickLogin() {
+  popUpLogin.addEventListener("click", function (event) {
+    if (event.target.classList.contains("register_wrapper__login")) {
+      popUpLogin.classList.add("visibility");
+    }
   });
 }
+
+function closeBtnCross() {
+  popUpRegistr.classList.add("visibility");
+}
+
 // данные формы
 const registerForm = document.querySelector(".register_form");
 const passwordInput = document.getElementById("password");
@@ -245,6 +269,7 @@ const db = {
         visits: 0,
         bonuses: "0",
         books: "0",
+        active: true,
       };
       // сохраняем локал
       const existingData = JSON.parse(localStorage.getItem("users")) || [];
@@ -295,6 +320,8 @@ db.addUser();
 db.titleName();
 db.firstLetters();
 db.visitsCount();
+wrapperToggleClick();
+wrapperToggleClickLogin();
 
 // делаем Если введённые имя и номер карты совпадают с данными пользователя,
 //то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
@@ -343,16 +370,20 @@ formCheckLibraryCards();
 // достаём имя из локал стоража
 function getUserName() {
   let localData = localStorage.getItem("users");
-  localData = JSON.parse(localData);
-  userName = localData[0].name;
-  return userName;
+  if (localData) {
+    localData = JSON.parse(localData);
+    userName = localData[0].name;
+    return userName;
+  }
 }
 //достаём номер карты юзера
 function getUserCards() {
   let localData = localStorage.getItem("users");
-  localData = JSON.parse(localData);
-  readerCardNumber = localData[0].cardNumber;
-  return readerCardNumber;
+  if (localData) {
+    localData = JSON.parse(localData);
+    readerCardNumber = localData[0].cardNumber;
+    return readerCardNumber;
+  }
 }
 // получаем число посещений
 function visitsCount() {
