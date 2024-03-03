@@ -9,14 +9,14 @@ width = document.documentElement.clientWidth;
 burgerToggle.addEventListener("click", function () {
   headerMenu.classList.toggle("open");
   profileLogin.classList.add("visibility");
-  profileWithAutorization.classList.add('visibility')
+  profileWithAutorization.classList.add("visibility");
 });
 // закрытие меню при аутсайд клике
 document.addEventListener("click", function (event) {
   const isClickInsideMenu = headerMenu.contains(event.target);
   if (!isClickInsideMenu) {
     profileLogin.classList.add("visibility");
-    profileWithAutorization.classList.add('visibility')
+    profileWithAutorization.classList.add("visibility");
     headerMenu.classList.remove("open");
   }
 });
@@ -186,6 +186,7 @@ const closeBtn = document.querySelector(".close");
 const closeBtnLogin = document.querySelector(".close_login");
 const buttonLoginOnCards = document.querySelector(".button_login");
 const buyBooksButton = document.querySelectorAll(".button1");
+const buttonProfileOnCards = document.querySelector('.button_profile')
 // console.log(buyBooksButton)
 
 loginBtn.addEventListener("click", function () {
@@ -248,11 +249,26 @@ const generateCardNumber = () => {
   }
   return cardNumber.toUpperCase();
 };
+// прописанное имя и карта по умолчанию, если авторизован
+function inputNameWithAutorization() {
+  let localData = localStorage.getItem("users");
+  let parseLocalData = JSON.parse(localData);
+  let card = parseLocalData[0].cardNumber;
+  let nameAutorize = parseLocalData[0].name;
+  let lastName = parseLocalData[0].lastName;
+  inputNameWithAutorizationForm.placeholder = nameAutorize + " " + lastName;
+  inputNameWithAutorizationCard.placeholder = card
+}
+
 
 // достать данные из локала
 const storedFormData = localStorage.getItem("users");
 let firstLetterName = document.querySelector(".autorize_name");
 const registerButton = document.querySelector(".signin_btn");
+const checkTheCardButton = document.querySelector(".cards_button");
+const informationMenu = document.querySelector(".cards_information__container");
+let inputNameWithAutorizationForm = document.querySelector(".input_name");
+let inputNameWithAutorizationCard = document.querySelector(".input_card");
 
 const db = {
   addUser() {
@@ -318,12 +334,29 @@ const db = {
       localStorage.setItem("users", JSON.stringify(visits));
     }
   },
-};
+  autorizationUserPage() {
+    let localData = localStorage.getItem("users");
+    if (localData) {
+      let parseLocalData = JSON.parse(localData);
+      if (parseLocalData[0].active === true) {
+        checkTheCardButton.classList.add("visibility");
+        informationMenu.classList.remove("visibility");
+        inputNameWithAutorizationForm.classList.add('input_name__brow')
+        inputNameWithAutorizationCard.classList.add('input_card__brow')
+        buttonSignUp.classList.add('visibility')
+        buttonLoginOnCards.classList.add('visibility')
+        buttonProfileOnCards.classList.remove('visibility-display')
+        inputNameWithAutorization();
 
+      }
+    }
+  },
+};
 db.addUser();
 db.titleName();
 db.firstLetters();
 db.visitsCount();
+db.autorizationUserPage();
 wrapperToggleClick();
 wrapperToggleClickLogin();
 loginIfNotAutorization();
@@ -331,8 +364,7 @@ loginIfNotAutorization();
 // делаем Если введённые имя и номер карты совпадают с данными пользователя,
 //то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
 //кнопка чек зе кард с данными
-const checkTheCardButton = document.querySelector(".cards_button");
-const informationMenu = document.querySelector(".cards_information__container");
+
 let readerNameUser;
 let readerCardNumber; // карта юзера из локала
 const formLybraryCard = document.querySelector(".form_libraryCards");
@@ -416,54 +448,82 @@ function loginIfNotAutorization() {
   }
 }
 // мини кнопки регистрации и логина и переход между ними
-const switchLogin = document.querySelector('.container_form__footer-login')
-const switchRegister = document.querySelector('.container_form__footer-register')
-switchLogin.addEventListener('click', function(){
-  popUpRegistr.classList.add('visibility');
-  popUpLogin.classList.remove('visibility')
+const switchLogin = document.querySelector(".container_form__footer-login");
+const switchRegister = document.querySelector(
+  ".container_form__footer-register"
+);
+switchLogin.addEventListener("click", function () {
+  popUpRegistr.classList.add("visibility");
+  popUpLogin.classList.remove("visibility");
 });
 
-switchRegister.addEventListener('click', function(){
-  popUpRegistr.classList.remove('visibility');
-  popUpLogin.classList.add('visibility')
+switchRegister.addEventListener("click", function () {
+  popUpRegistr.classList.remove("visibility");
+  popUpLogin.classList.add("visibility");
 });
 //авторизация
-const loginForm = document.querySelector('.login_form')
+const loginForm = document.querySelector(".login_form");
 
-loginForm.addEventListener('submit', function(event){
-  let loginInputEmailCard = document.querySelector('.login_form__email-card').value
-let loginInputPassword = document.querySelector('.login_form__password').value
-let localData = localStorage.getItem("users");
-// event.preventDefault();
-if (localData) {
-  // получаем емейл карту и пароль из локала
-  let parseLocalData = JSON.parse(localData);
-  let email = parseLocalData[0].email;
+loginForm.addEventListener("submit", function (event) {
+  let loginInputEmailCard = document.querySelector(
+    ".login_form__email-card"
+  ).value;
+  let loginInputPassword = document.querySelector(
+    ".login_form__password"
+  ).value;
+  let localData = localStorage.getItem("users");
+  // event.preventDefault();
+  if (localData) {
+    // получаем емейл карту и пароль из локала
+    let parseLocalData = JSON.parse(localData);
+    let email = parseLocalData[0].email;
     let cards = parseLocalData[0].cardNumber;
     let password = parseLocalData[0].password;
     // делаем проверку локала и инпута
-    if (((email === loginInputEmailCard) || (cards === loginInputEmailCard)) && password === loginInputPassword ){
-      console.log(parseLocalData[0].active)
+    if (
+      (email === loginInputEmailCard || cards === loginInputEmailCard) &&
+      password === loginInputPassword
+    ) {
+      console.log(parseLocalData[0].active);
       // присваиваем авторизацию
-      parseLocalData.forEach((element) => element.active = true);
+      parseLocalData.forEach((element) => (element.active = true));
       localStorage.setItem("users", JSON.stringify(parseLocalData));
-
-    }
-}
-})
-// cкрываем дроп меню не авторизованного и меняем его на такое же но авторизованное
-const profileWithAutorization = document.querySelector('.profile_autorization-login')
-const profileWithAutorizationTitle = document.querySelector('.profile_autorization-tittle')
-
-profileLogo.addEventListener('click', function(){
-  let localData = localStorage.getItem("users");
-  if(localData){
-    let parseLocalData = JSON.parse(localData);
-    if(parseLocalData[0].active === true){
-      profileLogin.classList.add('visibility')
-      profileWithAutorization.classList.toggle('visibility')
-      let userCard = parseLocalData[0].cardNumber
-      profileWithAutorizationTitle.innerHTML = userCard
+      location.reload();
     }
   }
-})
+});
+// меняем вид страницы на авторизованный
+// cкрываем дроп меню не авторизованного и меняем его на такое же но авторизованное
+const profileWithAutorization = document.querySelector(
+  ".profile_autorization-login"
+);
+const profileWithAutorizationTitle = document.querySelector(
+  ".profile_autorization-tittle"
+);
+
+profileLogo.addEventListener("click", function () {
+  let localData = localStorage.getItem("users");
+  if (localData) {
+    let parseLocalData = JSON.parse(localData);
+    if (parseLocalData[0].active === true) {
+      profileLogin.classList.add("visibility");
+      profileWithAutorization.classList.toggle("visibility");
+      let userCard = parseLocalData[0].cardNumber;
+      profileWithAutorizationTitle.innerHTML = userCard;
+    }
+  }
+});
+// логаут
+const logOutButton = document.querySelector(".profile_autorization-logoutButton");
+logOutButton.addEventListener("click", function () {
+  let localData = localStorage.getItem("users");
+  let parseLocalData = JSON.parse(localData);
+  parseLocalData.forEach((element) => (element.active = false));
+  localStorage.setItem("users", JSON.stringify(parseLocalData));
+  inputNameWithAutorizationForm.classList.remove('input_name__brow')
+  inputNameWithAutorizationCard.classList.remove('input_card__brow')
+  buttonSignUp.classList.remove('visibility')
+  buttonLoginOnCards.classList.remove('visibility')
+  buttonProfileOnCards.classList.add('visibility-display')
+  location.reload();
+});
