@@ -9,12 +9,14 @@ width = document.documentElement.clientWidth;
 burgerToggle.addEventListener("click", function () {
   headerMenu.classList.toggle("open");
   profileLogin.classList.add("visibility");
+  profileWithAutorization.classList.add('visibility')
 });
 // закрытие меню при аутсайд клике
 document.addEventListener("click", function (event) {
   const isClickInsideMenu = headerMenu.contains(event.target);
   if (!isClickInsideMenu) {
     profileLogin.classList.add("visibility");
+    profileWithAutorization.classList.add('visibility')
     headerMenu.classList.remove("open");
   }
 });
@@ -432,7 +434,7 @@ loginForm.addEventListener('submit', function(event){
   let loginInputEmailCard = document.querySelector('.login_form__email-card').value
 let loginInputPassword = document.querySelector('.login_form__password').value
 let localData = localStorage.getItem("users");
-event.preventDefault();
+// event.preventDefault();
 if (localData) {
   // получаем емейл карту и пароль из локала
   let parseLocalData = JSON.parse(localData);
@@ -445,7 +447,23 @@ if (localData) {
       // присваиваем авторизацию
       parseLocalData.forEach((element) => element.active = true);
       localStorage.setItem("users", JSON.stringify(parseLocalData));
+
     }
 }
 })
+// cкрываем дроп меню не авторизованного и меняем его на такое же но авторизованное
+const profileWithAutorization = document.querySelector('.profile_autorization-login')
+const profileWithAutorizationTitle = document.querySelector('.profile_autorization-tittle')
 
+profileLogo.addEventListener('click', function(){
+  let localData = localStorage.getItem("users");
+  if(localData){
+    let parseLocalData = JSON.parse(localData);
+    if(parseLocalData[0].active === true){
+      profileLogin.classList.add('visibility')
+      profileWithAutorization.classList.toggle('visibility')
+      let userCard = parseLocalData[0].cardNumber
+      profileWithAutorizationTitle.innerHTML = userCard
+    }
+  }
+})

@@ -1449,6 +1449,7 @@ background-color: #000;
     position: absolute;
     width: 28px;
     height: 28px;
+    color: rgb(187, 148, 95);
     justify-content: center;
     align-items: center;
     background-color: white;
@@ -1481,3 +1482,8 @@ background-color: #000;
     margin: 10px 0;
    }
 /* -----------------------------------Hiden information on library cards ---------------------------------------------*/
+/* -----------------------------------text size autorization user in title ---------------------------------------------*/
+.profile_autorization-tittle{
+    font-size: 12px;
+}
+/* -----------------------------------text size autorization user in title ---------------------------------------------*/
