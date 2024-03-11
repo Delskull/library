@@ -187,7 +187,28 @@ const closeBtnLogin = document.querySelector(".close_login");
 const buttonLoginOnCards = document.querySelector(".button_login");
 const buyBooksButton = document.querySelectorAll(".button1");
 const buttonProfileOnCards = document.querySelector(".button_profile");
-// console.log(buyBooksButton)
+const closeBtnProfile = document.querySelector(".close_profile");
+const profileModal = document.querySelector(".profile_wrapper");
+const myProfileButton = document.querySelector(".profile_autorization-button");
+
+myProfileButton.addEventListener("click", function () {
+  profileModal.classList.toggle("visibility");
+  profileWithAutorization.classList.toggle("visibility");
+});
+
+buttonProfileOnCards.addEventListener('click', function(){
+  profileModal.classList.toggle("visibility");
+})
+
+// кнопки крестики для закрытия и врапер
+closeBtnProfile.addEventListener("click", function () {
+  profileModal.classList.add("visibility");
+});
+profileModal.addEventListener("click", function (event) {
+  if (event.target.classList.contains("profile_wrapper")) {
+    profileModal.classList.add("visibility");
+  }
+});
 
 loginBtn.addEventListener("click", function () {
   popUpLogin.classList.toggle("visibility");
@@ -269,7 +290,9 @@ const informationMenu = document.querySelector(".cards_information__container");
 let inputNameWithAutorizationForm = document.querySelector(".input_name");
 let inputNameWithAutorizationCard = document.querySelector(".input_card");
 const titleText = document.querySelector(".block_right"); // текст тайтл в блоке диджитал кардс
-const contentTextOnLibraryCards = document.querySelector('.cards_account__text') // текст контент в блоке диджитал кардс
+const contentTextOnLibraryCards = document.querySelector(
+  ".cards_account__text"
+); // текст контент в блоке диджитал кардс
 
 const db = {
   addUser() {
@@ -349,8 +372,9 @@ const db = {
         buttonProfileOnCards.classList.remove("visibility-display");
         inputNameWithAutorization();
         titleText.textContent = "Visit your profile";
-        contentTextOnLibraryCards.textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.'
-        contentTextOnLibraryCards.style.width = '60%'
+        contentTextOnLibraryCards.textContent =
+          "With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.";
+        contentTextOnLibraryCards.style.width = "60%";
       }
     }
   },
@@ -471,7 +495,9 @@ loginForm.addEventListener("submit", function (event) {
   let loginInputEmailCard = document.querySelector(
     ".login_form__email-card"
   ).value;
-  let loginInputPassword = document.querySelector(".login_form__password").value;
+  let loginInputPassword = document.querySelector(
+    ".login_form__password"
+  ).value;
   let localData = localStorage.getItem("users");
   // event.preventDefault();
   if (localData) {
@@ -495,8 +521,12 @@ loginForm.addEventListener("submit", function (event) {
 });
 // меняем вид страницы на авторизованный
 // cкрываем дроп меню не авторизованного и меняем его на такое же но авторизованное
-const profileWithAutorization = document.querySelector(".profile_autorization-login");
-const profileWithAutorizationTitle = document.querySelector(".profile_autorization-tittle");
+const profileWithAutorization = document.querySelector(
+  ".profile_autorization-login"
+);
+const profileWithAutorizationTitle = document.querySelector(
+  ".profile_autorization-tittle"
+);
 
 profileLogo.addEventListener("click", function () {
   let localData = localStorage.getItem("users");
@@ -525,8 +555,7 @@ logOutButton.addEventListener("click", function () {
   buttonLoginOnCards.classList.remove("visibility");
   buttonProfileOnCards.classList.add("visibility-display");
   titleText.textContent = "Get a reader card";
-  contentTextOnLibraryCards.textContent = 'You will be able to see a reader card after logging into account or you can register a new account'
+  contentTextOnLibraryCards.textContent =
+    "You will be able to see a reader card after logging into account or you can register a new account";
   location.reload();
 });
-
-
