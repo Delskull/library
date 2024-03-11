@@ -190,15 +190,16 @@ const buttonProfileOnCards = document.querySelector(".button_profile");
 const closeBtnProfile = document.querySelector(".close_profile");
 const profileModal = document.querySelector(".profile_wrapper");
 const myProfileButton = document.querySelector(".profile_autorization-button");
+const userCardInProfile = document.querySelector(".number_card");
 
 myProfileButton.addEventListener("click", function () {
   profileModal.classList.toggle("visibility");
   profileWithAutorization.classList.toggle("visibility");
 });
 
-buttonProfileOnCards.addEventListener('click', function(){
+buttonProfileOnCards.addEventListener("click", function () {
   profileModal.classList.toggle("visibility");
-})
+});
 
 // кнопки крестики для закрытия и врапер
 closeBtnProfile.addEventListener("click", function () {
@@ -289,6 +290,8 @@ const checkTheCardButton = document.querySelector(".cards_button");
 const informationMenu = document.querySelector(".cards_information__container");
 let inputNameWithAutorizationForm = document.querySelector(".input_name");
 let inputNameWithAutorizationCard = document.querySelector(".input_card");
+let profileInitials = document.querySelector(".left__initials");
+let fullNameProfile = document.querySelector(".left__fullName");
 const titleText = document.querySelector(".block_right"); // текст тайтл в блоке диджитал кардс
 const contentTextOnLibraryCards = document.querySelector(
   ".cards_account__text"
@@ -378,12 +381,32 @@ const db = {
       }
     }
   },
+  firstLettersOnProfile() {
+    if (storedFormData) {
+      const parsednewUser = JSON.parse(storedFormData);
+      let name1 = parsednewUser[parsednewUser.length - 1].name[0].toUpperCase();
+      let name2 =
+        parsednewUser[parsednewUser.length - 1].lastName[0].toUpperCase();
+      let firstSymbol = "" + name1 + name2;
+      profileInitials.innerHTML = firstSymbol;
+    }
+  },
+  fullNameOnProfile() {
+    let localData = localStorage.getItem("users");
+    let parseLocalData = JSON.parse(localData);
+    let nameAutorize = parseLocalData[0].name;
+    let lastName = parseLocalData[0].lastName;
+    let full = nameAutorize + " " + lastName;
+    fullNameProfile.innerHTML = full;
+  },
 };
 db.addUser();
 db.titleName();
 db.firstLetters();
 db.visitsCount();
 db.autorizationUserPage();
+db.firstLettersOnProfile();
+db.fullNameOnProfile();
 wrapperToggleClick();
 wrapperToggleClickLogin();
 loginIfNotAutorization();
@@ -558,4 +581,15 @@ logOutButton.addEventListener("click", function () {
   contentTextOnLibraryCards.textContent =
     "You will be able to see a reader card after logging into account or you can register a new account";
   location.reload();
+});
+//карта пользователя/счётчик в профиле
+userCardInProfile.innerHTML = getUserCards();
+let profilModalCount = document.querySelector(".count_visits2");
+profilModalCount.innerHTML = visitsCount();
+// кнопка копирования в буфер
+const copyButton = document.querySelector(".copyLink");
+copyButton.addEventListener("click", function () {
+  let copy = userCardInProfile.textContent;
+  navigator.clipboard.writeText(copy);
+
 });
