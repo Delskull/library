@@ -714,6 +714,9 @@ line-height: 40px;
 letter-spacing: 2%;
 text-align: right;
 }
+.block_right__visible{
+    display: none;
+}
 /* ------------------------ libraryCards_cards -----------------------*/
 
 /* ------------------------ FOOTER -----------------------*/
@@ -996,6 +999,8 @@ text-align: center;
 align-self: center;
 margin-top: 20px;
 margin-bottom: 40px;
+display: block;
+
 }
 .cards_account__text{
     text-align: center;

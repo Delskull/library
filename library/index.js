@@ -186,7 +186,7 @@ const closeBtn = document.querySelector(".close");
 const closeBtnLogin = document.querySelector(".close_login");
 const buttonLoginOnCards = document.querySelector(".button_login");
 const buyBooksButton = document.querySelectorAll(".button1");
-const buttonProfileOnCards = document.querySelector('.button_profile')
+const buttonProfileOnCards = document.querySelector(".button_profile");
 // console.log(buyBooksButton)
 
 loginBtn.addEventListener("click", function () {
@@ -257,9 +257,8 @@ function inputNameWithAutorization() {
   let nameAutorize = parseLocalData[0].name;
   let lastName = parseLocalData[0].lastName;
   inputNameWithAutorizationForm.placeholder = nameAutorize + " " + lastName;
-  inputNameWithAutorizationCard.placeholder = card
+  inputNameWithAutorizationCard.placeholder = card;
 }
-
 
 // достать данные из локала
 const storedFormData = localStorage.getItem("users");
@@ -269,6 +268,8 @@ const checkTheCardButton = document.querySelector(".cards_button");
 const informationMenu = document.querySelector(".cards_information__container");
 let inputNameWithAutorizationForm = document.querySelector(".input_name");
 let inputNameWithAutorizationCard = document.querySelector(".input_card");
+const titleText = document.querySelector(".block_right"); // текст тайтл в блоке диджитал кардс
+const contentTextOnLibraryCards = document.querySelector('.cards_account__text') // текст контент в блоке диджитал кардс
 
 const db = {
   addUser() {
@@ -341,13 +342,15 @@ const db = {
       if (parseLocalData[0].active === true) {
         checkTheCardButton.classList.add("visibility");
         informationMenu.classList.remove("visibility");
-        inputNameWithAutorizationForm.classList.add('input_name__brow')
-        inputNameWithAutorizationCard.classList.add('input_card__brow')
-        buttonSignUp.classList.add('visibility')
-        buttonLoginOnCards.classList.add('visibility')
-        buttonProfileOnCards.classList.remove('visibility-display')
+        inputNameWithAutorizationForm.classList.add("input_name__brow");
+        inputNameWithAutorizationCard.classList.add("input_card__brow");
+        buttonSignUp.classList.add("visibility");
+        buttonLoginOnCards.classList.add("visibility");
+        buttonProfileOnCards.classList.remove("visibility-display");
         inputNameWithAutorization();
-
+        titleText.textContent = "Visit your profile";
+        contentTextOnLibraryCards.textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.'
+        contentTextOnLibraryCards.style.width = '60%'
       }
     }
   },
@@ -468,9 +471,7 @@ loginForm.addEventListener("submit", function (event) {
   let loginInputEmailCard = document.querySelector(
     ".login_form__email-card"
   ).value;
-  let loginInputPassword = document.querySelector(
-    ".login_form__password"
-  ).value;
+  let loginInputPassword = document.querySelector(".login_form__password").value;
   let localData = localStorage.getItem("users");
   // event.preventDefault();
   if (localData) {
@@ -494,12 +495,8 @@ loginForm.addEventListener("submit", function (event) {
 });
 // меняем вид страницы на авторизованный
 // cкрываем дроп меню не авторизованного и меняем его на такое же но авторизованное
-const profileWithAutorization = document.querySelector(
-  ".profile_autorization-login"
-);
-const profileWithAutorizationTitle = document.querySelector(
-  ".profile_autorization-tittle"
-);
+const profileWithAutorization = document.querySelector(".profile_autorization-login");
+const profileWithAutorizationTitle = document.querySelector(".profile_autorization-tittle");
 
 profileLogo.addEventListener("click", function () {
   let localData = localStorage.getItem("users");
@@ -514,16 +511,22 @@ profileLogo.addEventListener("click", function () {
   }
 });
 // логаут
-const logOutButton = document.querySelector(".profile_autorization-logoutButton");
+const logOutButton = document.querySelector(
+  ".profile_autorization-logoutButton"
+);
 logOutButton.addEventListener("click", function () {
   let localData = localStorage.getItem("users");
   let parseLocalData = JSON.parse(localData);
   parseLocalData.forEach((element) => (element.active = false));
   localStorage.setItem("users", JSON.stringify(parseLocalData));
-  inputNameWithAutorizationForm.classList.remove('input_name__brow')
-  inputNameWithAutorizationCard.classList.remove('input_card__brow')
-  buttonSignUp.classList.remove('visibility')
-  buttonLoginOnCards.classList.remove('visibility')
-  buttonProfileOnCards.classList.add('visibility-display')
+  inputNameWithAutorizationForm.classList.remove("input_name__brow");
+  inputNameWithAutorizationCard.classList.remove("input_card__brow");
+  buttonSignUp.classList.remove("visibility");
+  buttonLoginOnCards.classList.remove("visibility");
+  buttonProfileOnCards.classList.add("visibility-display");
+  titleText.textContent = "Get a reader card";
+  contentTextOnLibraryCards.textContent = 'You will be able to see a reader card after logging into account or you can register a new account'
   location.reload();
 });
+
+
