@@ -317,6 +317,7 @@ const db = {
         bonuses: "0",
         books: "0",
         active: false,
+        libraryCard: false,
       };
       // сохраняем локал
       const existingData = JSON.parse(localStorage.getItem("users")) || [];
@@ -393,11 +394,13 @@ const db = {
   },
   fullNameOnProfile() {
     let localData = localStorage.getItem("users");
+    if(localData){
     let parseLocalData = JSON.parse(localData);
     let nameAutorize = parseLocalData[0].name;
     let lastName = parseLocalData[0].lastName;
     let full = nameAutorize + " " + lastName;
     fullNameProfile.innerHTML = full;
+    }
   },
 };
 db.addUser();
@@ -591,5 +594,27 @@ const copyButton = document.querySelector(".copyLink");
 copyButton.addEventListener("click", function () {
   let copy = userCardInProfile.textContent;
   navigator.clipboard.writeText(copy);
+  document.querySelector('.tooltip-toggle').style.opacity = 1
+  setTimeout(() => {
+    document.querySelector('.tooltip-toggle').style.opacity = 0
+  }, "1000");
+
 
 });
+
+// проверка на авторизацию и если нет либрари карты, то предлагает ее купить
+
+function buyLibraryCard () {
+  let localData = localStorage.getItem("users");
+  if (localData) {
+    let parseLocalData = JSON.parse(localData)
+    if ( parseLocalData[0].active === true && parseLocalData[0].libraryCard === false){
+      buyBooksButton.forEach((elem) => {
+        elem.addEventListener("click", function () {
+          console.log('эгегей');
+        });
+      });
+    }
+}
+}
+buyLibraryCard ()
