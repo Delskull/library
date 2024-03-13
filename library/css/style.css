@@ -6,6 +6,10 @@ body{
 font-family: 'Inter', sans-serif;
 font-size: 20px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
 
 .content{
     display: flex;
@@ -1582,7 +1586,15 @@ margin-left: -88px;
 }
 .profile__information{
     display: flex;
+    margin-bottom: 30px;
 
+}
+.rented__books{
+    color: rgb(12, 12, 14);
+    font-family: Inter;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 20px;
 }
 .profile__information_column{
     margin-right: 20px;
@@ -1621,4 +1633,125 @@ margin-bottom: 30px;
     transition: all 0.3s linear;
 }
 /* -----------------------------------PROFILE MODAL ---------------------------------------------*/
+
+/* -----------------------------------BUY CARD MODAL ---------------------------------------------*/
+
+.buyCard_wrapper{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(20, 20, 20, 0.3);
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: all 0.3s linear;
+}
+.buyCard__container{
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 540px;
+}
+.buyCard_header{
+    display: flex;
+    background-color: #000;
+    color: #FFF;
+    justify-content: space-between;
+    align-items: center;
+}
+.buyCard_header__title{
+    margin-left: 100px;
+    color: rgb(255, 255, 255);
+font-family: Forum;
+font-size: 40px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 2%;
+text-align: center;
+text-transform: uppercase;
+}
+.buyCard_main{
+    display: flex;
+    background-color: #FFF;
+}
+.buyCard_column{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+.libraryCard_form{
+    display: flex;
+    flex-direction: column;
+font-family: Inter;
+font-size: 15px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 2%;
+
+}
+
+.code{
+    width: 20%;
+    margin-right: 10px;
+}
+.cvc{
+    width: 23%;
+}
+.libraryCard_form__footer{
+    display: flex;
+    margin-bottom: 20px ;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.buyCard_btn{
+    position: relative;
+    background-color: #FFF;
+    color: rgb(12, 12, 14);
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid rgb(12, 12, 14);
+    border-radius: 2px;
+    width: 75px;
+    height: 30px;
+    align-self: flex-start;
+}
+.libraryCard_form__price{
+    color: rgb(12, 12, 14);
+font-family: Inter;
+font-size: 20px;
+font-weight: 700;
+line-height: 20px;
+letter-spacing: 2px;
+text-align: left;
+text-transform: uppercase;
+}
+.buyCard_column2{
+    color: rgb(142, 142, 142);
+font-family: Inter;
+font-size: 15px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 2px;
+text-align: left;
+margin-right: 30px;
+}
+.close_card{
+    background-color: #000;
+}
+.close_line3,
+.close_line4{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+}
+/* -----------------------------------BUY CARD MODAL ---------------------------------------------*/
 

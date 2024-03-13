@@ -618,3 +618,13 @@ function buyLibraryCard () {
 }
 }
 buyLibraryCard ()
+
+// перепрыгивание на другой инпут после 2 символов
+const input = document.querySelector('.code');
+
+input.addEventListener('input', (e) => {
+  if (e.target.value.length >= 2) {
+    e.target.blur();
+    document.querySelector('.code2').focus();
+  }
+});

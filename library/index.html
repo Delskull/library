@@ -230,18 +230,100 @@
                 </div>
               </div>
               <div class="rented__books">
+                Rented books
                 <ul class="rented__books rented__books_head">
-                  Rented books
+                  <li class="rented__books_books-name"></li>
                 </ul>
-                <li class="rented__books_books-name"></li>
               </div>
               <div class="cards_information">
                 <div class="cards_information">Card number</div>
                 <div class="cards_information number_card"></div>
                 <div class="cards_information copy_card">
-                  <button class="copyLink"><img src="assets/svg/icon copy.svg" alt="copy" />
-                  <span class="tooltip-toggle">скопировано</span>
+                  <button class="copyLink">
+                    <img src="assets/svg/icon_copy.svg" alt="copy" />
+                    <span class="tooltip-toggle">скопировано</span>
                   </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="buyCard_wrapper">
+          <div class="buyCard__container">
+            <div class="buyCard_header">
+              <div class="buyCard_header__title">Buy a library card</div>
+              <a href="#" class="close close_login close_card">
+                <span class="close_line1 close_line3"></span>
+                <span class="close_line2 close_line4"></span>
+              </a>
+            </div>
+            <div class="buyCard_main">
+              <div class="buyCard_column">
+                <form class="libraryCard_form" action="#">
+                  <div class="libraryCard_form">
+                    <label>Bank card number</label>
+
+                    <input
+                      class="register_form__modal creditCardNumber"
+                      type="number"
+                      required
+                    />
+                    <label>Expiration code</label>
+
+                    <div class="expCode">
+                      <input
+                        class="register_form__modal code"
+                        maxlength="2"
+                        type="number"
+                        required
+                      />
+                      <input
+                        class="register_form__modal code code2"
+                        type="number"
+                        required
+                      />
+                    </div>
+                    <label>CVC</label>
+
+                    <input
+                      class="register_form__modal cvc"
+                      type="number"
+                      required
+                    />
+                    <label>Cardholder name</label>
+
+                    <input
+                      class="register_form__modal holderName"
+                      type="text"
+                      required
+                    />
+                    <label>Postal code</label>
+
+                    <input
+                      class="register_form__modal postalCode"
+                      type="number"
+                      required
+                    />
+                    <label>City / Town</label>
+
+                    <input
+                      class="register_form__modal city"
+                      type="text"
+                      required
+                    />
+                    <div class="libraryCard_form__footer">
+                      <button class="buyCard_btn">Buy</button>
+                      <div class="libraryCard_form__price">$ 25.00</div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="buyCard_column buyCard_column2">
+                <div class="buyCard_column__text">
+                  If you are live, work, attend school, or pay property taxes in
+                  New York State, you can get a $25 digital library card right
+                  now using this online form. Visitors to New York State can
+                  also use this form to apply for a temporary card.
                 </div>
               </div>
             </div>
