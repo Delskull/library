@@ -191,6 +191,16 @@ const closeBtnProfile = document.querySelector(".close_profile");
 const profileModal = document.querySelector(".profile_wrapper");
 const myProfileButton = document.querySelector(".profile_autorization-button");
 const userCardInProfile = document.querySelector(".number_card");
+const buyReaderCard = document.querySelector('.buyCard_wrapper')
+const closeBuyReaderCard = document.querySelector('.close_buy')
+
+closeBuyReaderCard.addEventListener('click', () => buyReaderCard.classList.add("visibility"))
+
+buyReaderCard.addEventListener('click', function(event){
+  if (event.target.classList.contains("buyCard_wrapper")) {
+    buyReaderCard.classList.add("visibility");
+  }
+})
 
 myProfileButton.addEventListener("click", function () {
   profileModal.classList.toggle("visibility");
@@ -293,9 +303,9 @@ let inputNameWithAutorizationCard = document.querySelector(".input_card");
 let profileInitials = document.querySelector(".left__initials");
 let fullNameProfile = document.querySelector(".left__fullName");
 const titleText = document.querySelector(".block_right"); // текст тайтл в блоке диджитал кардс
-const contentTextOnLibraryCards = document.querySelector(
-  ".cards_account__text"
-); // текст контент в блоке диджитал кардс
+const contentTextOnLibraryCards = document.querySelector(".cards_account__text"); // текст контент в блоке диджитал кардс
+const libraryForm = document.querySelector('.libraryCard_form')
+const buyCard = document.querySelector('.buyCard_btn')
 
 const db = {
   addUser() {
@@ -484,17 +494,25 @@ function visitsCount() {
     return userCount;
   }
 }
-// клик по книгам без авторизации --> меню логина
+// клик по книгам без авторизации --> меню логина // меню покупки карты
 function loginIfNotAutorization() {
   let localData = localStorage.getItem("users");
   if (localData) {
     let parseLocalData = JSON.parse(localData);
     let autorization = parseLocalData[0].active;
+    let readerCard = parseLocalData[0].libraryCard;
     console.log(autorization);
     if (autorization === false) {
       buyBooksButton.forEach((elem) => {
         elem.addEventListener("click", function () {
           popUpLogin.classList.remove("visibility");
+        });
+      });
+    }
+    if (autorization === true && readerCard === false){
+      buyBooksButton.forEach((elem) => {
+        elem.addEventListener("click", function () {
+          buyReaderCard.classList.toggle('visibility');
         });
       });
     }
@@ -604,23 +622,12 @@ copyButton.addEventListener("click", function () {
 
 // проверка на авторизацию и если нет либрари карты, то предлагает ее купить
 
-function buyLibraryCard () {
-  let localData = localStorage.getItem("users");
-  if (localData) {
-    let parseLocalData = JSON.parse(localData)
-    if ( parseLocalData[0].active === true && parseLocalData[0].libraryCard === false){
-      buyBooksButton.forEach((elem) => {
-        elem.addEventListener("click", function () {
-          console.log('эгегей');
-        });
-      });
-    }
-}
-}
-buyLibraryCard ()
+
 
 // перепрыгивание на другой инпут после 2 символов
-const input = document.querySelector('.code');
+const input = document.querySelector('.code')
+const input2 = document.querySelector('.code2')
+
 
 input.addEventListener('input', (e) => {
   if (e.target.value.length >= 2) {
@@ -628,3 +635,20 @@ input.addEventListener('input', (e) => {
     document.querySelector('.code2').focus();
   }
 });
+input2.addEventListener('input', (e) => {
+  if (e.target.value.length >= 2) {
+    e.target.blur();
+    document.querySelector('.cvc').focus();
+  }
+});
+document.querySelector('.cvc').addEventListener('input',function(e){
+  if (e.target.value.length >= 3) {
+
+  e.target.blur();
+    document.querySelector('.holderName').focus()};
+})
+buyCard.addEventListener('click',function(){
+  if (document.querySelector('.cvc').value.length < 3 ){
+    alert('cvc должен содержать 3 символа')
+  }
+})
