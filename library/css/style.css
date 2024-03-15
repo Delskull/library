@@ -409,6 +409,8 @@ text-align: center;
 box-sizing: border-box;
 border: 1px solid rgb(187, 148, 95);
 border-radius: 2px;
+margin-left: 20px;
+display: none;
 
 }
 .cards_btn{

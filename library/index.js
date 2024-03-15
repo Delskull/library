@@ -191,16 +191,18 @@ const closeBtnProfile = document.querySelector(".close_profile");
 const profileModal = document.querySelector(".profile_wrapper");
 const myProfileButton = document.querySelector(".profile_autorization-button");
 const userCardInProfile = document.querySelector(".number_card");
-const buyReaderCard = document.querySelector('.buyCard_wrapper')
-const closeBuyReaderCard = document.querySelector('.close_buy')
+const buyReaderCard = document.querySelector(".buyCard_wrapper");
+const closeBuyReaderCard = document.querySelector(".close_buy");
 
-closeBuyReaderCard.addEventListener('click', () => buyReaderCard.classList.add("visibility"))
+closeBuyReaderCard.addEventListener("click", () =>
+  buyReaderCard.classList.add("visibility")
+);
 
-buyReaderCard.addEventListener('click', function(event){
+buyReaderCard.addEventListener("click", function (event) {
   if (event.target.classList.contains("buyCard_wrapper")) {
     buyReaderCard.classList.add("visibility");
   }
-})
+});
 
 myProfileButton.addEventListener("click", function () {
   profileModal.classList.toggle("visibility");
@@ -303,9 +305,11 @@ let inputNameWithAutorizationCard = document.querySelector(".input_card");
 let profileInitials = document.querySelector(".left__initials");
 let fullNameProfile = document.querySelector(".left__fullName");
 const titleText = document.querySelector(".block_right"); // текст тайтл в блоке диджитал кардс
-const contentTextOnLibraryCards = document.querySelector(".cards_account__text"); // текст контент в блоке диджитал кардс
-const libraryForm = document.querySelector('.libraryCard_form')
-const buyCard = document.querySelector('.buyCard_btn')
+const contentTextOnLibraryCards = document.querySelector(
+  ".cards_account__text"
+); // текст контент в блоке диджитал кардс
+const libraryForm = document.querySelector(".libraryCard_form1");
+const buyCard = document.querySelector(".buyCard_btn");
 
 const db = {
   addUser() {
@@ -404,13 +408,55 @@ const db = {
   },
   fullNameOnProfile() {
     let localData = localStorage.getItem("users");
-    if(localData){
-    let parseLocalData = JSON.parse(localData);
-    let nameAutorize = parseLocalData[0].name;
-    let lastName = parseLocalData[0].lastName;
-    let full = nameAutorize + " " + lastName;
-    fullNameProfile.innerHTML = full;
+    if (localData) {
+      let parseLocalData = JSON.parse(localData);
+      let nameAutorize = parseLocalData[0].name;
+      let lastName = parseLocalData[0].lastName;
+      let full = nameAutorize + " " + lastName;
+      fullNameProfile.innerHTML = full;
     }
+  },
+  // клик по книгам без авторизации --> меню логина // меню покупки карты
+  loginIfNotAutorization() {
+    let localData = localStorage.getItem("users");
+    if (localData) {
+      let parseLocalData = JSON.parse(localData);
+      let autorization = parseLocalData[0].active;
+      let readerCard = parseLocalData[0].libraryCard;
+      if (autorization === false) {
+        buyBooksButton.forEach((elem) => {
+          elem.addEventListener("click", function () {
+            popUpLogin.classList.remove("visibility");
+          });
+        });
+      }
+      if (autorization === true && readerCard === false) {
+        buyBooksButton.forEach((elem) => {
+          elem.addEventListener("click", function () {
+            buyReaderCard.classList.toggle("visibility");
+          });
+        });
+      }
+      // если куплена карта и есть авторизация, то при клике меняем кнопку покупки на Own
+      if (autorization === true && readerCard === true){
+        buyBooksButton.forEach((elem) => {
+          elem.addEventListener("click", function (item) {
+            item.target.style.display = "none";
+            item.target.nextElementSibling.style.display = "block";
+          });
+        });
+      }
+    }
+  },
+  buyLibraryCard() {
+    libraryForm.addEventListener("submit", function (event) {
+      let localData = localStorage.getItem("users");
+      let parseLocalData = JSON.parse(localData);
+      console.log(parseLocalData);
+      parseLocalData.forEach((elem) => (elem.libraryCard = true));
+      localStorage.setItem("users", JSON.stringify(parseLocalData));
+      buyReaderCard.classList.toggle("visibility");
+    });
   },
 };
 db.addUser();
@@ -422,7 +468,8 @@ db.firstLettersOnProfile();
 db.fullNameOnProfile();
 wrapperToggleClick();
 wrapperToggleClickLogin();
-loginIfNotAutorization();
+db.loginIfNotAutorization();
+db.buyLibraryCard();
 
 // делаем Если введённые имя и номер карты совпадают с данными пользователя,
 //то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
@@ -494,30 +541,7 @@ function visitsCount() {
     return userCount;
   }
 }
-// клик по книгам без авторизации --> меню логина // меню покупки карты
-function loginIfNotAutorization() {
-  let localData = localStorage.getItem("users");
-  if (localData) {
-    let parseLocalData = JSON.parse(localData);
-    let autorization = parseLocalData[0].active;
-    let readerCard = parseLocalData[0].libraryCard;
-    console.log(autorization);
-    if (autorization === false) {
-      buyBooksButton.forEach((elem) => {
-        elem.addEventListener("click", function () {
-          popUpLogin.classList.remove("visibility");
-        });
-      });
-    }
-    if (autorization === true && readerCard === false){
-      buyBooksButton.forEach((elem) => {
-        elem.addEventListener("click", function () {
-          buyReaderCard.classList.toggle('visibility');
-        });
-      });
-    }
-  }
-}
+
 // мини кнопки регистрации и логина и переход между ними
 const switchLogin = document.querySelector(".container_form__footer-login");
 const switchRegister = document.querySelector(
@@ -612,43 +636,82 @@ const copyButton = document.querySelector(".copyLink");
 copyButton.addEventListener("click", function () {
   let copy = userCardInProfile.textContent;
   navigator.clipboard.writeText(copy);
-  document.querySelector('.tooltip-toggle').style.opacity = 1
+  document.querySelector(".tooltip-toggle").style.opacity = 1;
   setTimeout(() => {
-    document.querySelector('.tooltip-toggle').style.opacity = 0
+    document.querySelector(".tooltip-toggle").style.opacity = 0;
   }, "1000");
-
-
 });
 
 // проверка на авторизацию и если нет либрари карты, то предлагает ее купить
 
-
-
 // перепрыгивание на другой инпут после 2 символов
-const input = document.querySelector('.code')
-const input2 = document.querySelector('.code2')
+const input = document.querySelector(".code");
+const input2 = document.querySelector(".code2");
 
-
-input.addEventListener('input', (e) => {
+input.addEventListener("input", (e) => {
   if (e.target.value.length >= 2) {
     e.target.blur();
-    document.querySelector('.code2').focus();
+    document.querySelector(".code2").focus();
   }
 });
-input2.addEventListener('input', (e) => {
+input2.addEventListener("input", (e) => {
   if (e.target.value.length >= 2) {
     e.target.blur();
-    document.querySelector('.cvc').focus();
+    document.querySelector(".cvc").focus();
   }
 });
-document.querySelector('.cvc').addEventListener('input',function(e){
+document.querySelector(".cvc").addEventListener("input", function (e) {
   if (e.target.value.length >= 3) {
-
-  e.target.blur();
-    document.querySelector('.holderName').focus()};
-})
-buyCard.addEventListener('click',function(){
-  if (document.querySelector('.cvc').value.length < 3 ){
-    alert('cvc должен содержать 3 символа')
+    e.target.blur();
+    document.querySelector(".holderName").focus();
   }
-})
+});
+buyCard.addEventListener("click", function () {
+  if (document.querySelector(".cvc").value.length < 3) {
+    alert("cvc должен содержать 3 символа");
+  }
+});
+
+// делаем кнопку own при покупке
+let ownButton = document.querySelectorAll(".button2");
+// function buyBooksWithCard() {
+//   let localData = localStorage.getItem("users");
+//   if (localData) {
+//     let parseLocalData = JSON.parse(localData);
+//     let autorization = parseLocalData[0].active;
+//     let readerCard = parseLocalData[0].libraryCard;
+//     if (autorization === true && readerCard === true) {
+//       buyBooksButton.forEach((elem) => {
+//         elem.addEventListener("click", function (item) {
+//           console.log("ira");
+//           item.target.classList.add("button2");
+//           item.target.classList.remove("button1");
+//         });
+//       });
+//     }
+//   }
+// }
+// buyBooksWithCard();
+
+// делаем книги в локал
+function addBooks() {
+  const theBookEaters = document.querySelector(".theBookEaters");
+
+  buyBooksButton.forEach((elem) => {
+    elem.addEventListener("click", function (item) {
+      const books = {
+        theBookEaters: false,
+      };
+    });
+  });
+}
+
+// function switchButton() {
+//   buyBooksButton.forEach((elem) => {
+//     elem.addEventListener("click", function (item) {
+//       item.target.style.display = "none";
+//       item.target.nextElementSibling.style.display = "block";
+//     });
+//   });
+// }
+
