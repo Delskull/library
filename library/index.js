@@ -305,11 +305,22 @@ let inputNameWithAutorizationCard = document.querySelector(".input_card");
 let profileInitials = document.querySelector(".left__initials");
 let fullNameProfile = document.querySelector(".left__fullName");
 const titleText = document.querySelector(".block_right"); // текст тайтл в блоке диджитал кардс
-const contentTextOnLibraryCards = document.querySelector(
-  ".cards_account__text"
-); // текст контент в блоке диджитал кардс
+const contentTextOnLibraryCards = document.querySelector(".cards_account__text"); // текст контент в блоке диджитал кардс
 const libraryForm = document.querySelector(".libraryCard_form1");
 const buyCard = document.querySelector(".buyCard_btn");
+let countOfBooks = document.querySelector('.book_count')
+let countOfBooksBottom = document.querySelector('.book_count2') // счётчик книг внизу страницы
+
+// счётчик количества купленных книг
+function booksCount() {
+  let localData = localStorage.getItem("users");
+  if (localData) {
+    localData = JSON.parse(localData);
+    localData.forEach((element) => element.booksRented++);
+    localStorage.setItem("users", JSON.stringify(localData));
+  }
+}
+
 
 const db = {
   addUser() {
@@ -329,7 +340,7 @@ const db = {
         cardNumber: generateCardNumber(),
         visits: 0,
         bonuses: "0",
-        books: "0",
+        booksRented: 0 ,
         active: false,
         libraryCard: false,
       };
@@ -645,6 +656,54 @@ const db = {
     }
   }
   },
+  // добавляем название книги по клику в OwnBooks
+  addBooks() {
+    let localData = localStorage.getItem("books");
+      let users = localStorage.getItem('users')
+      if (localData && users) {
+        let parseUsers = JSON.parse(users)
+        let autorization = parseUsers[0].active;
+        let readerCard = parseUsers[0].libraryCard;
+        let parseLocalData = JSON.parse(localData);
+        if (autorization === true && readerCard === true){
+    buyBooksButton.forEach((elem) => {
+      elem.addEventListener("click", function (item) {
+        let booksClass = item.target.parentNode.classList[1];
+        booksCount()
+
+        // Создаем массив в локальном хранилище, если он еще не существует
+        const existingData = JSON.parse(localStorage.getItem("ownBook")) || [];
+
+        // Добавляем объект в массив
+        existingData.push(booksClass);
+
+        // Сохраняем обновленный массив в локальное хранилище
+        localStorage.setItem("ownBook", JSON.stringify(existingData));
+
+        console.log(booksClass);
+      });
+    });
+  }
+      }
+  },
+  showBooksCount (){
+    let localData = localStorage.getItem("users");
+      if (localData) {
+        let parseLocalData = JSON.parse(localData);
+        let count = parseLocalData[0].booksRented;
+        countOfBooks.innerHTML = count;
+        countOfBooksBottom.innerHTML = count;
+  }
+  },
+  dinamicUpdateCountBook () {
+    myProfileButton.addEventListener('click', function(){
+      let localData = localStorage.getItem("users");
+      if (localData) {
+        parselocalData = JSON.parse(localData);
+        countOfBooks.innerHTML = parselocalData[0].booksRented
+      }
+    })
+  }
 
 };
 db.addUser();
@@ -660,6 +719,9 @@ db.loginIfNotAutorization();
 db.buyLibraryCard();
 db.switchButtons();
 db.checkButtons();
+db.addBooks();
+db.showBooksCount();
+db.dinamicUpdateCountBook();
 
 // делаем Если введённые имя и номер карты совпадают с данными пользователя,
 //то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
@@ -779,12 +841,8 @@ loginForm.addEventListener("submit", function (event) {
 });
 // меняем вид страницы на авторизованный
 // cкрываем дроп меню не авторизованного и меняем его на такое же но авторизованное
-const profileWithAutorization = document.querySelector(
-  ".profile_autorization-login"
-);
-const profileWithAutorizationTitle = document.querySelector(
-  ".profile_autorization-tittle"
-);
+const profileWithAutorization = document.querySelector(".profile_autorization-login");
+const profileWithAutorizationTitle = document.querySelector(".profile_autorization-tittle");
 
 profileLogo.addEventListener("click", function () {
   let localData = localStorage.getItem("users");
@@ -799,9 +857,7 @@ profileLogo.addEventListener("click", function () {
   }
 });
 // логаут
-const logOutButton = document.querySelector(
-  ".profile_autorization-logoutButton"
-);
+const logOutButton = document.querySelector(".profile_autorization-logoutButton");
 logOutButton.addEventListener("click", function () {
   let localData = localStorage.getItem("users");
   let parseLocalData = JSON.parse(localData);
@@ -862,27 +918,6 @@ buyCard.addEventListener("click", function () {
   }
 });
 
-// делаем кнопку own при покупке
-let ownButton = document.querySelectorAll(".button2");
 
-// делаем книги в локал
-function addBooks() {
-  buyBooksButton.forEach((elem) => {
-    elem.addEventListener("click", function (item) {
-      let booksClass = item.target.parentNode.classList[1];
-
-      // Создаем массив в локальном хранилище, если он еще не существует
-      const existingData = JSON.parse(localStorage.getItem("ownBook")) || [];
-
-      // Добавляем объект в массив
-      existingData.push(booksClass);
-
-      // Сохраняем обновленный массив в локальное хранилище
-      localStorage.setItem("ownBook", JSON.stringify(existingData));
-
-      console.log(booksClass);
-    });
-  });
-}
-addBooks();
+// console.log(localStorage.getItem('ownBook').split(','))
 
