@@ -483,6 +483,169 @@ const db = {
       buyReaderCard.classList.toggle("visibility");
     });
   },
+  // запоминаем состояние
+
+  switchButtons() {
+    let localData = localStorage.getItem("books");
+    let users = localStorage.getItem('users')
+    if (localData && users) {
+      let parseUsers = JSON.parse(users)
+      let autorization = parseUsers[0].active;
+        let readerCard = parseUsers[0].libraryCard;
+      let parseLocalData = JSON.parse(localData);
+      if (autorization === true && readerCard === true){
+      if (parseLocalData[0].the_Book_Eaters === true) {
+        document.querySelector(".the_Book_Eaters__Sunyi_Dean").children[0].style.display = "none";
+        document.querySelector(".the_Book_Eaters__Sunyi_Dean").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].cackle === true) {
+        document.querySelector(".cackle__Rachel_Harrison").children[0].style.display = "none";
+        document.querySelector(".cackle__Rachel_Harrison").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].Dante_Poet_Of_The_Secular_World === true) {
+        document.querySelector(".Dante_Poet_Of_The_Secular_World__Erich_Auerbach").children[0].style.display = "none";
+        document.querySelector(".Dante_Poet_Of_The_Secular_World__Erich_Auerbach").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].the_Last_Queen === true) {
+        document.querySelector(".the_Last_Queen__Clive_Irving").children[0].style.display = "none";
+        document.querySelector(".the_Last_Queen__Clive_Irving").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].the_Body === true) {
+        document.querySelector(".the_Body__Stephen_King").children[0].style.display = "none";
+        document.querySelector(".the_Body__Stephen_King").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].Carry_A_Memoir_of_Survival_on_Stolen_Land === true) {
+        document.querySelector(".Carry_A_Memoir_of_Survival_on_Stolen_Land__Toni_Jenson").children[0].style.display = "none";
+        document.querySelector(".Carry_A_Memoir_of_Survival_on_Stolen_Land__Toni_Jenson").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].Days_of_Distraction === true) {
+        document.querySelector(".Days_of_Distraction__Alexandra_Chang").children[0].style.display = "none";
+        document.querySelector(".Days_of_Distraction__Alexandra_Chang").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].Dominicana === true) {
+        document.querySelector(".Dominicana__Angie_Cruz").children[0].style.display = "none";
+        document.querySelector(".Dominicana__Angie_Cruz").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].Crude_A_Memoir === true) {
+        document.querySelector(".Crude_A_Memoir__Pablo_Fajardo_Sophie_Tardy-Joubert").children[0].style.display = "none";
+        document.querySelector(".Crude_A_Memoir__Pablo_Fajardo_Sophie_Tardy-Joubert").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].Let_My_People_Go_Surfing === true) {
+        document.querySelector(".Let_My_People_Go_Surfing__Yvon_Chouinard").children[0].style.display = "none";
+        document.querySelector(".Let_My_People_Go_Surfing__Yvon_Chouinard").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].The_Octopus_Museum_Poems === true) {
+        document.querySelector(".The_Octopus_Museum_Poems__Brenda_Shaughnessy").children[0].style.display = "none";
+        document.querySelector(".The_Octopus_Museum_Poems__Brenda_Shaughnessy").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].Shark_Dialogues_A_Novel === true) {
+        document.querySelector(".Shark_Dialogues_A_Novel__Kiana_Davenport").children[0].style.display = "none";
+        document.querySelector(".Shark_Dialogues_A_Novel__Kiana_Davenport").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].Casual_Conversation === true) {
+        document.querySelector(".Casual_Conversation__Renia_White").children[0].style.display = "none";
+        document.querySelector(".Casual_Conversation__Renia_White").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].The_Great_Fire === true) {
+        document.querySelector(".The_Great_Fire__Lou_Ureneck").children[0].style.display = "none";
+        document.querySelector(".The_Great_Fire__Lou_Ureneck").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].Rickey_The_Life_and_Legend === true) {
+        document.querySelector(".Rickey_The_Life_and_Legend__Howard_Bryant").children[0].style.display = "none";
+        document.querySelector(".Rickey_The_Life_and_Legend__Howard_Bryant").children[1].style.display = "block";
+      }
+      if (parseLocalData[0].Slug_And_Other_Stories === true) {
+        document.querySelector(".Slug_And_Other_Stories__Megan_Milks").children[0].style.display = "none";
+        document.querySelector(".Slug_And_Other_Stories__Megan_Milks").children[1].style.display = "block";
+      }
+    }
+    }
+  },
+  // при покупке меняем в локале книгу фолс на тру
+  checkButtons (){
+    let localData = localStorage.getItem("books");
+    let users = localStorage.getItem('users')
+    if (localData && users) {
+      let parseUsers = JSON.parse(users)
+      let autorization = parseUsers[0].active;
+      let readerCard = parseUsers[0].libraryCard;
+      let parseLocalData = JSON.parse(localData);
+      if (autorization === true && readerCard === true){
+      buyBooksButton.forEach((elem)=>{
+        elem.addEventListener('click', function(item){
+          if(item.target.id === '1'){
+            parseLocalData.forEach((elem) => (elem.the_Book_Eaters = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '2'){
+            parseLocalData.forEach((elem) => (elem.cackle = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '3'){
+            parseLocalData.forEach((elem) => (elem.Dante_Poet_Of_The_Secular_World = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '4'){
+            parseLocalData.forEach((elem) => (elem.the_Last_Queen = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '5'){
+            parseLocalData.forEach((elem) => (elem.the_Body = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '6'){
+            parseLocalData.forEach((elem) => (elem.Carry_A_Memoir_of_Survival_on_Stolen_Land = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '7'){
+            parseLocalData.forEach((elem) => (elem.Days_of_Distraction = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '8'){
+            parseLocalData.forEach((elem) => (elem.Dominicana = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '9'){
+            parseLocalData.forEach((elem) => (elem.Crude_A_Memoir = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '10'){
+            parseLocalData.forEach((elem) => (elem.Let_My_People_Go_Surfing = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '11'){
+            parseLocalData.forEach((elem) => (elem.The_Octopus_Museum_Poems = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '12'){
+            parseLocalData.forEach((elem) => (elem.Shark_Dialogues_A_Novel = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '13'){
+            parseLocalData.forEach((elem) => (elem.Casual_Conversation = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '14'){
+            parseLocalData.forEach((elem) => (elem.The_Great_Fire = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '15'){
+            parseLocalData.forEach((elem) => (elem.Rickey_The_Life_and_Legend = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+          if(item.target.id === '16'){
+            parseLocalData.forEach((elem) => (elem.Slug_And_Other_Stories = true));
+        localStorage.setItem("books", JSON.stringify(parseLocalData));
+          }
+
+        })
+
+      }
+      )
+    }
+  }
+  },
+
 };
 db.addUser();
 db.titleName();
@@ -495,6 +658,8 @@ wrapperToggleClick();
 wrapperToggleClickLogin();
 db.loginIfNotAutorization();
 db.buyLibraryCard();
+db.switchButtons();
+db.checkButtons();
 
 // делаем Если введённые имя и номер карты совпадают с данными пользователя,
 //то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
@@ -720,213 +885,4 @@ function addBooks() {
   });
 }
 addBooks();
-// запоминаем состояние
-function switchButtons() {
-  let localData = localStorage.getItem("books");
-  if (localData) {
-    let parseLocalData = JSON.parse(localData);
-    if (parseLocalData[0].the_Book_Eaters === true) {
-      document.querySelector(
-        ".the_Book_Eaters__Sunyi_Dean"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".the_Book_Eaters__Sunyi_Dean"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].cackle === true) {
-      document.querySelector(
-        ".cackle__Rachel_Harrison"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".cackle__Rachel_Harrison"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].Dante_Poet_Of_The_Secular_World === true) {
-      document.querySelector(
-        ".Dante_Poet_Of_The_Secular_World__Erich_Auerbach"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".Dante_Poet_Of_The_Secular_World__Erich_Auerbach"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].the_Last_Queen === true) {
-      document.querySelector(
-        ".the_Last_Queen__Clive_Irving"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".the_Last_Queen__Clive_Irving"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].the_Body === true) {
-      document.querySelector(
-        ".the_Body__Stephen_King"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".the_Body__Stephen_King"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].Carry_A_Memoir_of_Survival_on_Stolen_Land === true) {
-      document.querySelector(
-        ".Carry_A_Memoir_of_Survival_on_Stolen_Land__Toni_Jenson"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".Carry_A_Memoir_of_Survival_on_Stolen_Land__Toni_Jenson"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].Days_of_Distraction === true) {
-      document.querySelector(
-        ".Days_of_Distraction__Alexandra_Chang"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".Days_of_Distraction__Alexandra_Chang"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].Dominicana === true) {
-      document.querySelector(
-        ".Dominicana__Angie_Cruz"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".Dominicana__Angie_Cruz"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].Crude_A_Memoir === true) {
-      document.querySelector(
-        ".Crude_A_Memoir__Pablo_Fajardo_Sophie_Tardy-Joubert"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".Crude_A_Memoir__Pablo_Fajardo_Sophie_Tardy-Joubert"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].Let_My_People_Go_Surfing === true) {
-      document.querySelector(
-        ".Let_My_People_Go_Surfing__Yvon_Chouinard"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".Let_My_People_Go_Surfing__Yvon_Chouinard"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].The_Octopus_Museum_Poems === true) {
-      document.querySelector(
-        ".The_Octopus_Museum_Poems__Brenda_Shaughnessy"
-      ).children[0].style.display = "none";
-      document.querySelector(
-        ".The_Octopus_Museum_Poems__Brenda_Shaughnessy"
-      ).children[1].style.display = "block";
-    }
-    if (parseLocalData[0].Shark_Dialogues_A_Novel === true) {
-      document.querySelector(".Shark_Dialogues_A_Novel__Kiana_Davenport").children[0].style.display = "none";
-      document.querySelector(".Shark_Dialogues_A_Novel__Kiana_Davenport").children[1].style.display = "block";
-    }
-    if (parseLocalData[0].Casual_Conversation === true) {
-      document.querySelector(".Casual_Conversation__Renia_White").children[0].style.display = "none";
-      document.querySelector(".Casual_Conversation__Renia_White").children[1].style.display = "block";
-    }
-    if (parseLocalData[0].The_Great_Fire === true) {
-      document.querySelector(".The_Great_Fire__Lou_Ureneck").children[0].style.display = "none";
-      document.querySelector(".The_Great_Fire__Lou_Ureneck").children[1].style.display = "block";
-    }
-    if (parseLocalData[0].Rickey_The_Life_and_Legend === true) {
-      document.querySelector(".Rickey_The_Life_and_Legend__Howard_Bryant").children[0].style.display = "none";
-      document.querySelector(".Rickey_The_Life_and_Legend__Howard_Bryant").children[1].style.display = "block";
-    }
-    if (parseLocalData[0].Slug_And_Other_Stories === true) {
-      document.querySelector(".Slug_And_Other_Stories__Megan_Milks").children[0].style.display = "none";
-      document.querySelector(".Slug_And_Other_Stories__Megan_Milks").children[1].style.display = "block";
-    }
-  }
-}
-switchButtons();
-// при покупке меняем в локале книгу фолс на тру
-function checkButtons (){
-  let localData = localStorage.getItem("books");
-  if (localData) {
-    let parseLocalData = JSON.parse(localData);
-    buyBooksButton.forEach((elem)=>{
-      elem.addEventListener('click', function(item){
-        if(item.target.id === '1'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.the_Book_Eaters = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '2'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.cackle = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '3'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.Dante_Poet_Of_The_Secular_World = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '4'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.the_Last_Queen = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '5'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.the_Body = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '6'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.Carry_A_Memoir_of_Survival_on_Stolen_Land = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '7'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.Days_of_Distraction = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '8'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.Dominicana = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '9'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.Crude_A_Memoir = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '10'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.Let_My_People_Go_Surfing = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '11'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.The_Octopus_Museum_Poems = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '12'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.Shark_Dialogues_A_Novel = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '13'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.Casual_Conversation = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '14'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.The_Great_Fire = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '15'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.Rickey_The_Life_and_Legend = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
-        if(item.target.id === '16'){
-          // parseLocalData[0].the_Book_Eaters === true;
-          parseLocalData.forEach((elem) => (elem.Slug_And_Other_Stories = true));
-      localStorage.setItem("books", JSON.stringify(parseLocalData));
-        }
 
-      })
-    }
-    )
-}
-}
-checkButtons ()
