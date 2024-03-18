@@ -703,6 +703,29 @@ const db = {
         countOfBooks.innerHTML = parselocalData[0].booksRented
       }
     })
+    buttonProfileOnCards.addEventListener('click', function(){
+      let localData = localStorage.getItem("users");
+      if (localData) {
+        parselocalData = JSON.parse(localData);
+        countOfBooks.innerHTML = parselocalData[0].booksRented
+
+      }
+    })
+  },
+  // втсавляем купленные книги в статистику
+  booksList() {
+    const booksList = document.querySelector('.rented__books_head');
+
+    let localData = JSON.parse(localStorage.getItem("ownBook"));
+    if (localData){
+    localData.forEach((item) => {
+      let li = document.createElement('li');
+      li.classList.add('list');
+      li.textContent = item;
+      booksList.appendChild(li);
+
+    });
+  }
   }
 
 };
@@ -722,6 +745,7 @@ db.checkButtons();
 db.addBooks();
 db.showBooksCount();
 db.dinamicUpdateCountBook();
+db.booksList();
 
 // делаем Если введённые имя и номер карты совпадают с данными пользователя,
 //то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
@@ -919,5 +943,4 @@ buyCard.addEventListener("click", function () {
 });
 
 
-// console.log(localStorage.getItem('ownBook').split(','))
 
