@@ -726,6 +726,25 @@ const db = {
 
     });
   }
+  },
+  // сразу добавляет книги
+  booksListDinamiq() {
+    const booksList = document.querySelector('.rented__books_head');
+    buyBooksButton.forEach((elem) => {
+      elem.addEventListener('click', function () {
+        let localData = JSON.parse(localStorage.getItem("ownBook"));
+        if (localData){
+        localData.forEach((item,index,arr) => {
+          let li = document.createElement('li');
+          li.classList.add('list');
+          li.textContent = item;
+          if ((index === arr.length - 1)){
+          booksList.appendChild(li);
+          }
+        })};
+      });
+    });
+
   }
 
 };
@@ -746,6 +765,7 @@ db.addBooks();
 db.showBooksCount();
 db.dinamicUpdateCountBook();
 db.booksList();
+db.booksListDinamiq();
 
 // делаем Если введённые имя и номер карты совпадают с данными пользователя,
 //то отображается панель с информацией, вместо кнопки Check the card на 10 секунд
@@ -941,6 +961,3 @@ buyCard.addEventListener("click", function () {
     alert("cvc должен содержать 3 символа");
   }
 });
-
-
-
