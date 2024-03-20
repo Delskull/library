@@ -106,13 +106,7 @@ circle1.addEventListener("click", function () {
 
 let step = 0;
 
-arrowRight.addEventListener("click", function () {
-  step += 800;
-  if (step >= 3200) {
-    arrowRight.style.remove;
-  }
-  arrowRight.style.left = step + 0 + "px";
-});
+
 //-----------------------------------------------карусель^^^^^-----------------------------------
 // КАРТОЧКИ FAVORITES
 // кнопки радио

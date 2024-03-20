@@ -89,6 +89,7 @@ header {
 .header_nav {
     padding-right: 30px;
     cursor: pointer;
+    z-index: 5;
 }
 
 .header_burger {
@@ -359,6 +360,7 @@ input {
     padding-left: 20px;
     margin-top: 40px;
     margin-bottom: 40px;
+    left: -425px;
 }
 
 .cards_name {
@@ -1174,6 +1176,21 @@ a {
 
 }
 
+@media (max-width:768px) {
+
+    .caroosel_img:nth-child(3) {
+        margin-left: -28px;
+    }
+
+    .caroosel_img:nth-child(4) {
+        margin-left: -48px;
+    }
+
+    .caroosel_img:nth-child(5) {
+        margin-left: -58px;
+    }
+}
+
 /* --------------------------------------------------------- A D A P T I V E 768---------------------------------------------*/
 /* --------------------------------------------------------- A D A P T I V E 425---------------------------------------------*/
 @media (max-width:425px) {
@@ -1233,6 +1250,39 @@ a {
     .input_card {
         width: 90%;
     }
+
+    .profile__container {
+        width: 40%;
+    }
+
+    .caroosel_img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .caroosel_img:nth-child(1) {
+        margin-left: -72px;
+    }
+
+    .caroosel_img:nth-child(2) {
+        margin-left: 62px;
+    }
+
+    .caroosel_img:nth-child(3) {
+        margin-left: 23px;
+    }
+
+    .caroosel_img:nth-child(4) {
+        margin-left: 27px;
+    }
+
+    .caroosel_img:nth-child(5) {
+        margin-left: 27px;
+    }
+
+    .form_libraryCards {
+        width: 100%;
+    }
 }
 
 /* --------------------------------------------------------- A D A P T I V E 425---------------------------------------------*/
@@ -1246,99 +1296,145 @@ a {
 
         width: 100%;
     }
+}
 
-    /* --------------------------------------------------------- A D A P T I V E 375---------------------------------------------*/
-    @media (max-width:375px) {
+/* --------------------------------------------------------- A D A P T I V E 375---------------------------------------------*/
+@media (max-width:375px) {
 
-        h1 {
-            font-size: 20px;
-        }
-
-        .welcome {
-            background-size: 125%;
-        }
-
-        .arrow_left {
-            margin-right: 20px;
-        }
-
-        .arrow_right {
-            margin-left: 20px;
-        }
-
-        body {
-            font-size: 15px;
-        }
-
-        .menu_item {
-            width: 100%;
-        }
-
-        form {
-            height: 290px;
-        }
+    h1 {
+        font-size: 20px;
     }
 
-    /* --------------------------------------------------------- A D A P T I V E 375---------------------------------------------*/
-
-    /* --------------------------------------------------------- A D A P T I V E 390---------------------------------------------*/
-    @media (max-width:400px) {
-
-        h1 {
-            font-size: 20px;
-        }
-
-        .welcome {
-            background-size: 125%;
-        }
-
-        .arrow_left {
-            margin-right: 20px;
-        }
-
-        .arrow_right {
-            margin-left: 20px;
-        }
-
-        body {
-            font-size: 15px;
-        }
-
-        .menu_item {
-            width: 100%;
-        }
-
-        form {
-            height: 290px;
-        }
+    .welcome {
+        background-size: 125%;
     }
 
-    /* --------------------------------------------------------- A D A P T I V E 390---------------------------------------------*/
-    /* --------------------------------------------------------- A D A P T I V E 320---------------------------------------------*/
-    @media (max-width:320px) {
+    .arrow_left {
+        margin-right: 20px;
+    }
 
-        .welcome {
-            background-size: 125%;
+    .arrow_right {
+        margin-left: 20px;
+    }
 
-        }
+    body {
+        font-size: 15px;
+    }
 
-        .welcome_text {
-            height: 170px
-        }
+    .menu_item {
+        width: 100%;
+    }
 
-        h1 {
-            font-size: 15px;
-        }
+    form {
+        height: 290px;
+    }
 
-        h3 {
-            font-size: 25px;
-        }
+    .caroosel_img:nth-child(2) {
+        margin-left: 124px;
+    }
 
-        .favorites_input {
-            margin-left: -8px;
-        }
+    .caroosel_img:nth-child(3) {
+        margin-left: 71px;
+    }
+
+    .caroosel_img:nth-child(4) {
+        margin-left: 79px;
+    }
+
+    .caroosel_img:nth-child(5) {
+        margin-left: 79px;
     }
 }
+
+/* --------------------------------------------------------- A D A P T I V E 375---------------------------------------------*/
+
+/* --------------------------------------------------------- A D A P T I V E 390---------------------------------------------*/
+@media (max-width:400px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .welcome {
+        background-size: 125%;
+    }
+
+    .arrow_left {
+        margin-right: 20px;
+    }
+
+    .arrow_right {
+        margin-left: 20px;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    .menu_item {
+        width: 100%;
+    }
+
+    form {
+        height: 290px;
+    }
+}
+
+/* --------------------------------------------------------- A D A P T I V E 390---------------------------------------------*/
+/* --------------------------------------------------------- A D A P T I V E 320---------------------------------------------*/
+@media (max-width:320px) {
+
+    .welcome {
+        background-size: 125%;
+
+    }
+
+    .welcome_text {
+        height: 170px
+    }
+
+    h1 {
+        font-size: 15px;
+    }
+
+    h3 {
+        font-size: 25px;
+    }
+
+    .favorites_input {
+        margin-left: -8px;
+    }
+
+    .profile__container {
+        width: 40%;
+    }
+
+    .caroosel_img:nth-child(1) {
+        margin-left: -63px;
+    }
+
+    .caroosel_img:nth-child(2) {
+        margin-left: 181px;
+    }
+
+    .caroosel_img:nth-child(3) {
+        margin-left: 127px;
+    }
+
+    .caroosel_img:nth-child(4) {
+        margin-left: 132px;
+    }
+
+    .caroosel_img:nth-child(5) {
+        margin-left: 132px;
+    }
+
+    .cards_login {
+        width: 110%;
+    }
+}
+
+
 
 /* --------------------------------------------------------- A D A P T I V E 320---------------------------------------------*/
 /* --------------------------------------------------------- A D A P T I V E ---------------------------------------------*/
@@ -1363,6 +1459,7 @@ a {
 
 .caroosel_img {
     margin-right: 24px;
+    object-fit: cover;
 }
 
 .circle_brow {
@@ -1378,6 +1475,7 @@ a {
 @media (max-width:1024px) {
     .caroosel_img {
         margin-right: 320px;
+        padding-left: 22px;
     }
 
     .caroosel {
@@ -1385,6 +1483,7 @@ a {
     }
 
 }
+
 
 /* --------------------------------------------------------- SLIDER ---------------------------------------------*/
 
@@ -1404,7 +1503,8 @@ a {
     position: relative;
     display: flex;
     opacity: 1;
-    transition: all 3s linear;
+    transition: all 0.5s linear;
+    left: 0;
 
 }
 
@@ -1843,6 +1943,7 @@ a {
     transition: all 0.3s linear;
 }
 
+
 /* -----------------------------------PROFILE MODAL ---------------------------------------------*/
 
 /* -----------------------------------BUY CARD MODAL ---------------------------------------------*/
@@ -1864,8 +1965,8 @@ a {
 .buyCard__container {
     display: flex;
     flex-direction: column;
-    width: 640px;
-    height: 540px;
+    width: 36%;
+    height: 100%;
 }
 
 .buyCard_header {
@@ -2000,4 +2101,95 @@ a {
 
 }
 
+@media (max-width:1024px) {
+    .buyCard__container {
+        width: 55%;
+    }
+
+    .buyCard_header__title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width:768px) {
+    .buyCard__container {
+        width: 75%;
+    }
+    .input_name{
+        font-size: 20px;
+    }
+}
+
+@media (max-width:425px) {
+    .buyCard__container {
+        width: 75%;
+        height: 100%;
+    }
+
+    .buyCard_column {
+        margin-left: 20px;
+        margin-top: 20px;
+        width: 75%;
+    }
+
+    .libraryCard_form1 {
+        width: 72%;
+    }
+
+    .buyCard_column2 {
+        font-size: 12px;
+        line-height: 14px;
+        margin-left: -40px;
+    }
+
+    .buyCard_header__title {
+        font-size: 22px;
+        margin-left: 55px;
+    }
+
+    .libraryCard_form__price {
+        font-size: 10px;
+    }
+}
+
 /* -----------------------------------BUY CARD MODAL ---------------------------------------------*/
+@media (max-width:425px) {
+    .profile__container {
+        width: 77%;
+        margin-left: 10px;
+        margin-right: 54px;
+        height: 80%;
+    }
+
+    .left__initials {
+        width: 60%;
+        height: 13%;
+    }
+
+    .left__fullName {
+        width: 98%;
+        height: 12%;
+        text-align: center;
+    }
+
+    .rented__books_head {
+        width: 80%;
+    }
+
+    .copyLink {
+        width: 60%;
+        height: 70%;
+    }
+
+    .profile__left-part {
+        width: 50%;
+    }
+
+    .profile__text {
+        font-size: 30px;
+    }
+
+    .cards_information__container {
+        margin-top: -60px;
+    }
+}
